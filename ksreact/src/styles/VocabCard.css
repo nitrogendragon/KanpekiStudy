@@ -1,0 +1,9 @@
+.vocab-card{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-width:30%;
+    min-height: 250px;
+    margin:5%;
+    border: 2px solid black;
+}

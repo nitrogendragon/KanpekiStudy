@@ -1,0 +1,11 @@
+.quiz-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    min-width: 60%;
+    min-height:50px;
+    margin:10px;
+    border-radius: 5%;
+    
+}
