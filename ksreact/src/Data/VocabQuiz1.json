@@ -1,0 +1,31 @@
+[
+
+    {
+        "Question": "What is the english translation for this word?",
+        "VocabKanji": "私",
+        "VocabHiragana": "わたし",
+        "VocabKatakana": "",
+        "VocabEnglish": "I",
+        "ImgUrl": "../Images/I.jfif",
+        "Id": "1",
+        "Answer1": "who",
+        "Answer2": "here",
+        "Answer3": "this",
+        "Answer4": "I, me",
+        "CorrectAnswer": "3"
+    },
+    {
+        "Question": "",
+        "VocabKanji": "",
+        "VocabHiragana": "",
+        "VocabKatakana": "",
+        "VocabEnglish": "",
+        "ImgUrl": "../Images/",
+        "Id": "",
+        "Answer1": "",
+        "Answer2": "",
+        "Answer3": "",
+        "Answer4": "",
+        "CorrectAnswer": ""
+    }
+]

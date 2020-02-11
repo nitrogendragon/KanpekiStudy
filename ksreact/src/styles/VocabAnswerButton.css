@@ -1,19 +1,27 @@
 .vocab-answer-button {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width:100%;
     min-height: 40px;
     border: 2px solid blueviolet;
     margin: 10px;
     text-shadow: blueviolet;
     box-shadow: 0px 3px 3px teal;
+    font-weight: bold;
 }
 
 .vocab-answer-button:hover {
-    background-color: tomato;
+    background-color: rgb(26, 182, 26);
+    color: white;
 }
 
 .vocab-answer-button-pressed{
-    background-color: darkviolet
+    background-color: darkviolet;
 }
+
+.vocab-answer-button-border{
+    display: flex;
+    width:100%;
+}
+
