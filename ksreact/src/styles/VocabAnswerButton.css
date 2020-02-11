@@ -1,0 +1,19 @@
+.vocab-answer-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    min-height: 40px;
+    border: 2px solid blueviolet;
+    margin: 10px;
+    text-shadow: blueviolet;
+    box-shadow: 0px 3px 3px teal;
+}
+
+.vocab-answer-button:hover {
+    background-color: tomato;
+}
+
+.vocab-answer-button-pressed{
+    background-color: darkviolet
+}
