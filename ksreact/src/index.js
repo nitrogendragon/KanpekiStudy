@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import VocabContainer from '../src/Components/VocabContainer'
+import VocabQuizContainer from '../src/Components/VocabQuizContainer'
 
-ReactDOM.render(<VocabContainer />, document.getElementById('root'));
+ReactDOM.render(<VocabQuizContainer />, document.getElementById('root'));
 
 

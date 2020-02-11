@@ -4,10 +4,12 @@ export default function VocabAnswerButton(props) {
     function handleClick(){
         if(props.answerId == props.correctAnswer){
 
-            alert('Your answer ' + props.answerId + ' is the correct answer. The answer is: ' + props.correctAnswer)
+            alert('Your answer {' + props.answer + '} is the correct answer. The answer is option ' + props.correctAnswer)
+            props.onAnswerClicked(true,props.lastQuestion)
         }
         else{
-            alert('Your answer ' + props.answerId )
+            alert('Your answer {' + props.answer + '} was not the correct answer. Give it another shot!')
+            props.onAnswerClicked(false, props.lastQuestion)
         }
     
     }
@@ -15,7 +17,7 @@ export default function VocabAnswerButton(props) {
     return (
         <div className='vocab-answer-button-border'>
            <button className='vocab-answer-button' value={props.answerId}
-           onClick={handleClick}>{props.answer}, {props.answerId}, {props.correctAnswer}</button>
+           onClick={handleClick}>{props.answerId}: {props.answer}</button>
             
         </div>
     )

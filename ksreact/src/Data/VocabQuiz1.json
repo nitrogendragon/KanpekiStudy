@@ -12,7 +12,8 @@
         "Answer2": "here",
         "Answer3": "this",
         "Answer4": "I, me",
-        "CorrectAnswer": "3"
+        "CorrectAnswer": "3",
+        "LastQuestion": false
     },
     {
         "Question": "",
@@ -26,6 +27,7 @@
         "Answer2": "",
         "Answer3": "",
         "Answer4": "",
-        "CorrectAnswer": ""
+        "CorrectAnswer": "",
+        "LastQuestion": true
     }
 ]
