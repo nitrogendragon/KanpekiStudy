@@ -3,7 +3,8 @@ import '../styles/VocabAnswerButtons.css'
 import VocabAnswerButton from './VocabAnswerButton'
 export default function VocabAnswerButtons(props) {
     
-    const answerButtons = props.answers ? props.answers.map((answer,index) => 
+    const answerButtons = props.answers.map((answer,index) => 
+        answer !== "" ?
         <VocabAnswerButton 
             key={answer} 
             answerId={index}
@@ -11,7 +12,8 @@ export default function VocabAnswerButtons(props) {
             lastQuestion = {props.lastQuestion}
             onAnswerClicked = {props.onAnswerClicked}
             correctAnswer = {props.correctAnswer}/>
-            ) : null
+             : null
+    )
     return (
         <div className='vocab-answer-buttons-container'>
             {answerButtons}
