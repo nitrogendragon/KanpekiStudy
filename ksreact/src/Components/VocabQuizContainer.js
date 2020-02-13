@@ -18,7 +18,7 @@ export default function VocabContainer(props) {
         Answer2, Answer3, Answer4, CorrectAnswer, LastQuestion)*/
     const vocabQuizData = require('../Data/VocabQuiz1.json')//eventually change via useState,useEffect
     const vocabQuizLength = vocabQuizData.length
-    
+    const slideUpContainerStyle = showFeedBack ? "slide-up-container" : ""
     console.log(vocabQuizLength)
     function handleAnswerClicked(isCorrectAnswer, isLastQuestion)
     {
@@ -66,7 +66,7 @@ export default function VocabContainer(props) {
                 correctAnswer = {vocabQuizData[questionNumber].CorrectAnswer}
             />
             <div className='break'></div>
-            <div className='slide-up-container'>
+            <div className={slideUpContainerStyle}>
                 <VocabQuizAnswerFeedBack isDisplayed={showFeedBack} isCorrect = {canContinue}/>
                 <VocabQuizContinueButton onContinueClicked ={handleContinueClicked} canContinue={canContinue}/>
             </div>
