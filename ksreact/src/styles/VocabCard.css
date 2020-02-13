@@ -2,10 +2,15 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    overflow:hidden;
     min-width:30%;
+    max-width:30%;
     min-height: 250px;
+    max-height: 250px;
     margin:5%;
     font-weight: bold;
     font-size: 2.5em;
     border: 2px solid black;
 }
+
