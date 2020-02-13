@@ -8,9 +8,9 @@ export default function VocabQuizContinueButton(props) {
     const theButton = props.canContinue ?
         <button className='continue-button' onClick={handleClick}>Continue</button> : <></>
     return (
-        <div>
+        <div style={{padding:'10px'}}>
             {theButton}
         </div>
-        // {theButton}
+        
     )
 }

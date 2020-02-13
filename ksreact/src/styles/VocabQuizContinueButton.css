@@ -1,5 +1,6 @@
 .continue-button{
     /* background-color: var(--background-color) */
+    display: flex;
     background-color: silver;
     color: #222;
     padding: 5px 10px;

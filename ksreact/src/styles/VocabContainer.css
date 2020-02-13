@@ -76,3 +76,15 @@ body{
 .continue-button.background-slide {
     z-index:1;
 }
+
+.slide-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border: 2px solid blue;
+    
+    border-radius: .51em;
+
+    
+}
