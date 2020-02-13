@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/VocabAnswerButtons.css'
+import '../../styles/Vocab/VocabAnswerButtons.css'
 import VocabAnswerButton from './VocabAnswerButton'
 export default function VocabAnswerButtons(props) {
     

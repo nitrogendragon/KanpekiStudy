@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/VocabQuizContinueButton.css'
+import '../../styles/Vocab/VocabQuizContinueButton.css'
 export default function VocabQuizContinueButton(props) {
     function handleClick(){
         props.onContinueClicked()

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/VocabQuizAnswerFeedBack.css'
+import '../../styles/Vocab/VocabQuizAnswerFeedBack.css'
 export default function VocabQuizAnswerFeedBack(props) {
     const feedBack = props.isDisplayed ? 
         props.isCorrect ? 
@@ -9,7 +9,10 @@ export default function VocabQuizAnswerFeedBack(props) {
     props.isCorrect ?
         textColor = {color: "green"} :
         textColor = {color: "red"}    
-    
+    // let scale
+    //     props.isDisplayed ? 
+    //     scale = {transform: "scaleY(0)"} :
+    //     scale = {transform: "scaleY(0)"}
     return (
         <div className='feed-back-container' style = {{color:textColor.color}}>
             {feedBack}

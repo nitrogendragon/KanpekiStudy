@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/VocabQuizPrompts.css'
+import '../../styles/Vocab/VocabQuizPrompts.css'
 export default function VocabQuizPrompt(props) {
     return (
         <div className='quiz-container'>

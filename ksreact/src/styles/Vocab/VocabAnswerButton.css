@@ -4,10 +4,10 @@
     align-items: flex-start;
     width:100%;
     min-height: 40px;
-    border: 2px solid blueviolet;
+    border: 2px solid blue;
     margin: 10px;
-    text-shadow: blueviolet;
-    box-shadow: 0px 3px 3px teal;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px teal;
     font-weight: bold;
 }
 

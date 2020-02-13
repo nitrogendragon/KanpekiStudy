@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/VocabCard.css'
+import '../../styles/Vocab/VocabCard.css'
 export default function VocabCardImg(props) {
     return (
         <div className='vocab-card'>

@@ -6,7 +6,7 @@ import VocabAnswerButtons from './VocabAnswerButtons'
 import VocabQuizContinueButton from './VocabQuizContinueButton'
 import VocabQuizProgressBar from './VocabQuizProgressBar'
 import VocabQuizAnswerFeedBack from './VocabQuizAnswerFeedBack'
-import '../styles/VocabContainer.css'
+import '../../styles/Vocab/VocabContainer.css'
 
 export default function VocabContainer(props) {
     const [questionNumber, setQuestionNumber] = useState(0)//always start at 0
@@ -16,9 +16,9 @@ export default function VocabContainer(props) {
     const [lastQuestion, setLastQuestion] = useState(false)
     /* Current key values(Question, VocabKanji, VocabHiragana, VocabEnlgish, ImgUrl, Id, Answer1, 
         Answer2, Answer3, Answer4, CorrectAnswer, LastQuestion)*/
-    const vocabQuizData = require('../Data/VocabQuiz1.json')//eventually change via useState,useEffect
+    const vocabQuizData = require('../../Data/VocabQuiz1.json')//eventually change via useState,useEffect
     const vocabQuizLength = vocabQuizData.length
-    const slideUpContainerStyle = showFeedBack ? "slide-up-container" : ""
+    const feedbackStyle = "slide-up-container " + (showFeedBack ? "visible" : "hidden");
     console.log(vocabQuizLength)
     function handleAnswerClicked(isCorrectAnswer, isLastQuestion)
     {
@@ -66,14 +66,10 @@ export default function VocabContainer(props) {
                 correctAnswer = {vocabQuizData[questionNumber].CorrectAnswer}
             />
             <div className='break'></div>
-            <div className={slideUpContainerStyle}>
+            <div className={feedbackStyle}>
                 <VocabQuizAnswerFeedBack isDisplayed={showFeedBack} isCorrect = {canContinue}/>
                 <VocabQuizContinueButton onContinueClicked ={handleContinueClicked} canContinue={canContinue}/>
             </div>
-            
-            {/* <button className='continue-button border-pop'> placeholdertext</button>
-            <div className='break'></div>
-            <button className='continue-button background-slide'> placeholdertext</button> */}
         </div>
 
         </>

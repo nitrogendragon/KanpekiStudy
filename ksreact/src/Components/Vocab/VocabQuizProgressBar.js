@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import '../styles/ProgressBar.css'
+import '../../styles/Vocab/ProgressBar.css'
 
 
 export default function VocabQuizProgressBar(props) {

@@ -84,7 +84,21 @@ body{
     width: 80%;
     border: 2px solid blue;
     
+    
+    transform-origin: bottom;
     border-radius: .51em;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 
     
 }
+
+.slide-up-container.hidden{
+    transform:scaleY(0)
+}
+
+.slide-up-container.visible{
+    transform:scaleY(1)
+}
+
+
+

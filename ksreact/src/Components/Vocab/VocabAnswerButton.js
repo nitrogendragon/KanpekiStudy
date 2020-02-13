@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/VocabAnswerButton.css'
+import '../../styles/Vocab/VocabAnswerButton.css'
 export default function VocabAnswerButton(props) {
     function handleClick(){
         if(props.answerId == props.correctAnswer){
