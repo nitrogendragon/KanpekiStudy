@@ -1,14 +1,14 @@
 import React from 'react'
-
+import '../styles/VocabQuizContinueButton.css'
 export default function VocabQuizContinueButton(props) {
     function handleClick(){
         props.onContinueClicked()
     }
 
     const theButton = props.canContinue ?
-        <button onClick={handleClick}>Continue</button> : <></>
+        <button className='continue-button' onClick={handleClick}>Continue</button> : <></>
     return (
-        <div className='continue-container'>
+        <div>
             {theButton}
         </div>
         // {theButton}

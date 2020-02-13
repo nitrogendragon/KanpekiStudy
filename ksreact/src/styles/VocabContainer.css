@@ -1,3 +1,7 @@
+body{
+    background-color: #f2f7fd;;
+}
+
 .main-container{
     display: flex;
     flex-wrap:wrap;
@@ -11,3 +15,64 @@
     flex-basis: 100%;
     height: 0;
   }
+
+.continue-button{
+    background-color: var(--background-color);
+    color: #222;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: large;
+    border: 1px solid var(--background-color);
+    border-radius: .3125em;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+
+    --background-color: #E3E3E3;
+    --border-size: 4px;
+    --accent-color: #0AF;
+}
+
+.continue-button.border-pop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    border: var(--border-size) solid var(--background-color);
+    transition: top, left, right, bottom, 100ms ease-in-out;
+}
+
+.continue-button.border-pop:hover::before,
+.continue-button.border-pop:focus::before {
+
+    top: calc(var(--border-size) * -2);
+    left: calc(var(--border-size) * -2);
+    right: calc(var(--border-size) * -2);
+    bottom: calc(var(--border-size) * -2);
+
+}
+
+.continue-button.background-slide::before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.continue-button.background-slide:hover::before,
+.continue-button.background-slide:focus::before {
+    transform: scaleX(1);
+}
+
+.continue-button.background-slide {
+    z-index:1;
+}

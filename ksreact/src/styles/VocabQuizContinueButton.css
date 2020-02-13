@@ -1,0 +1,16 @@
+.continue-button{
+    /* background-color: var(--background-color) */
+    background-color: silver;
+    color: #222;
+    padding: 5px 10px;
+    border: none;
+     outline: none;
+     cursor:pointer;
+}
+
+
+.continue-button:hover,
+.continue-button:focus{
+    background-color: rgb(26, 182, 26);
+    box-shadow: 0px 3px 3px teal;
+}

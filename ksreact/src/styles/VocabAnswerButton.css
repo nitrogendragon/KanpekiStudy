@@ -11,16 +11,8 @@
     font-weight: bold;
 }
 
-.vocab-answer-button:hover {
-    background-color: darkviolet;
-    min-height:50px;
-    margin-top:5px;
-    margin-bottom:5px;
-    background-color: rgb(26, 182, 26);
-    color: white;
-    cursor: pointer;
-}
 
+.vocab-answer-button:hover,
 .vocab-answer-button:focus{
     background-color: darkviolet;
     min-height:50px;
@@ -28,6 +20,7 @@
     margin-bottom:5px;
     background-color: rgb(26, 182, 26);
     color: white;
+    cursor: pointer;
 }
 
 .vocab-answer-button-border{

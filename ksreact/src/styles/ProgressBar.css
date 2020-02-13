@@ -1,0 +1,25 @@
+
+.progress-container{
+    display:flex;
+    align-items: center;
+    width:100%;
+    background-color:#ddd;
+    border: 2px solid blue;
+    border-radius:100px;
+    margin:10px;
+    
+}
+
+.progress{
+    
+    
+    height:20px;
+    background-color: #4CAF50;
+    
+    line-height: 30px;
+    color:white;
+    border-radius:100px;
+    
+
+}
+

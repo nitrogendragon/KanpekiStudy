@@ -3,12 +3,12 @@ import '../styles/VocabAnswerButton.css'
 export default function VocabAnswerButton(props) {
     function handleClick(){
         if(props.answerId == props.correctAnswer){
-
-            alert('Your answer {' + props.answer + '} is the correct answer. The answer is option ' + props.correctAnswer)
             props.onAnswerClicked(true,props.lastQuestion)
+            // alert('Your answer {' + props.answer + '} is the correct answer. The answer is option ' + props.correctAnswer)
+            
         }
         else{
-            alert('Your answer {' + props.answer + '} was not the correct answer. Give it another shot!')
+            // alert('Your answer {' + props.answer + '} was not the correct answer. Give it another shot!')
             props.onAnswerClicked(false, props.lastQuestion)
         }
     
