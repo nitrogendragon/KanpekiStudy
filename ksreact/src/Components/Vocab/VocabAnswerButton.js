@@ -1,8 +1,14 @@
 import React from 'react'
 import '../../styles/Vocab/VocabAnswerButton.css'
 export default function VocabAnswerButton(props) {
+    
     function handleClick(){
+        //stop if we already got the right answer otw proceed like normal
+        if(props.canContinue){
+            return null
+        }
         if(props.answerId == props.correctAnswer){
+            
             props.onAnswerClicked(true,props.lastQuestion)
             // alert('Your answer {' + props.answer + '} is the correct answer. The answer is option ' + props.correctAnswer)
             

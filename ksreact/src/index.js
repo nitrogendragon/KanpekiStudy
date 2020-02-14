@@ -4,6 +4,6 @@ import './index.css';
 import App from './App';
 import VocabQuizContainer from '../src/Components/Vocab/VocabQuizContainer'
 
-ReactDOM.render(<VocabQuizContainer />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 

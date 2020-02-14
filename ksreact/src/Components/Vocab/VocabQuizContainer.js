@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import VocabQuizPrompt from './VocabQuizPrompt'
 import VocabCard from './VocabCard'
 import VocabCardImg from './VocabCardImg'
@@ -19,10 +19,10 @@ export default function VocabContainer(props) {
     const vocabQuizData = require('../../Data/VocabQuiz1.json')//eventually change via useState,useEffect
     const vocabQuizLength = vocabQuizData.length
     const feedbackStyle = "slide-up-container " + (showFeedBack ? "visible" : "hidden");
-    console.log(vocabQuizLength)
     function handleAnswerClicked(isCorrectAnswer, isLastQuestion)
     {
-        
+        setShowFeedBack(false)
+        setTimeout( () => {
         if( isCorrectAnswer){
             setCanContinue(true) 
         }
@@ -33,6 +33,7 @@ export default function VocabContainer(props) {
         else{
             setLastQuestion(false)
         }
+    },100)
     }
 
     function handleContinueClicked()
@@ -63,6 +64,7 @@ export default function VocabContainer(props) {
                 ]}
                 lastQuestion = {vocabQuizData[questionNumber].LastQuestion}
                 onAnswerClicked = {handleAnswerClicked}
+                canContinue = {canContinue}
                 correctAnswer = {vocabQuizData[questionNumber].CorrectAnswer}
             />
             <div className='break'></div>

@@ -87,18 +87,22 @@ body{
     
     transform-origin: bottom;
     border-radius: .51em;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition: opacity .3s ease-out, transform 0.3s ease-out;
 
     
 }
 
 .slide-up-container.hidden{
-    transform:scaleY(0)
+    transition: opacity 0s ease-out, transform 0s ease-out;
+    transform:scaleY(0);
+    opacity: 0;
 }
 
-.slide-up-container.visible{
-    transform:scaleY(1)
+.slide-up-container.visible::before{
+    transform:scaleY(0);
+    opacity: 0;
 }
+
 
 
 

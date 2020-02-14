@@ -10,6 +10,7 @@ export default function VocabAnswerButtons(props) {
             answerId={index}
             answer ={answer}
             lastQuestion = {props.lastQuestion}
+            canContinue = {props.canContinue}
             onAnswerClicked = {props.onAnswerClicked}
             correctAnswer = {props.correctAnswer}/>
              : null
