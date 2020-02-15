@@ -1,4 +1,5 @@
-.vocab-answer-button {
+.vocab-answer-button,
+.vocab-answer-button-not-interactive {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -13,7 +14,8 @@
 
 
 .vocab-answer-button:hover,
-.vocab-answer-button:focus{
+.vocab-answer-button:focus,
+.vocab-answer-button-not-interactive:focus{
     background-color: darkviolet;
     min-height:50px;
     margin-top:5px;
@@ -22,6 +24,7 @@
     color: white;
     cursor: pointer;
 }
+
 
 .vocab-answer-button-border{
     display: flex;

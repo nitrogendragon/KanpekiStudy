@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/Vocab/VocabAnswerButton.css'
 export default function VocabAnswerButton(props) {
-    
+    const answerButtonStyle = "vocab-answer-button" + (props.canContinue && props.answerId != props.correctAnswer ? "-not-interactive": "")
     function handleClick(){
         //stop if we already got the right answer otw proceed like normal
         if(props.canContinue){
@@ -22,8 +22,8 @@ export default function VocabAnswerButton(props) {
 
     return (
         <div className='vocab-answer-button-border'>
-           <button className='vocab-answer-button' value={props.answerId}
-           onClick={handleClick}>{props.answerId}: {props.answer}</button>
+           <button className={answerButtonStyle} value={props.answerId}
+           onClick={handleClick}>{props.answer}</button>
             
         </div>
     )

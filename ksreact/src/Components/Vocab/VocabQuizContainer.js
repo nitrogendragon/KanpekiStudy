@@ -6,7 +6,7 @@ import VocabAnswerButtons from './VocabAnswerButtons'
 import VocabQuizContinueButton from './VocabQuizContinueButton'
 import VocabQuizProgressBar from './VocabQuizProgressBar'
 import VocabQuizAnswerFeedBack from './VocabQuizAnswerFeedBack'
-import '../../styles/Vocab/VocabContainer.css'
+import '../../styles/Vocab/VocabQuizContainer.css'
 
 export default function VocabContainer(props) {
     const [questionNumber, setQuestionNumber] = useState(0)//always start at 0
