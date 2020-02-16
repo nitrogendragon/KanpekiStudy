@@ -1,5 +1,5 @@
 import React from 'react'
-import{Link} from 'react-router-dom'
+import{} from 'react-router-dom'
 export default function Navigation(props) {
     
     return (
@@ -7,8 +7,11 @@ export default function Navigation(props) {
         <button onClick={() => props.history.push('/Home')} value = "/Home">
             Home
         </button>
-        <button onClick={() => props.history.push('/VocabQuiz')} value = "/Home">
+        <button onClick={() => props.history.push('/VocabQuiz')} value = "/VocabQuiz">
             VocabQuiz
+        </button>
+        <button onClick={() => props.history.push('/VocabFlashCards')} value = "/VocabFlashCards">
+            FlashCards
         </button>
       
     </div>

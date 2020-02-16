@@ -3,6 +3,7 @@ import {Router, Route, Switch} from 'react-router-dom'
 import Navigation from '../src/Components/Navigation/Navigation'
 import Home from '../src/Components/Home/Home'
 import VocabQuizContainer from '../src/Components/Vocab/VocabQuizContainer'
+import VocabFlashCards from '../src/Components/Vocab/VocabFlashCards'
 import history from './History'
 import '../src/App.css'
 
@@ -16,6 +17,7 @@ export default function App() {
       <Switch>
         <Route component= {Home} exact path ="/Home" />
         <Route component= {VocabQuizContainer} path ="/VocabQuiz" />
+        <Route component= {VocabFlashCards} path = "/VocabFlashCards" />
       </Switch>
     </Router>
     </>
