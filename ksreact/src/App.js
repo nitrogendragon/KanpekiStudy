@@ -16,8 +16,8 @@ export default function App() {
     <Router history={history}>
       <Switch>
         <Route component= {Home} exact path ="/Home" />
-        <Route component= {VocabQuizContainer} path ="/VocabQuiz" />
-        <Route component= {VocabFlashCards} path = "/VocabFlashCards" />
+        <Route component= {VocabQuizContainer} exact path ="/VocabQuiz" />
+        <Route component= {VocabFlashCards} exact path = "/VocabFlashCards" />
       </Switch>
     </Router>
     </>

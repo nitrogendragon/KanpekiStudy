@@ -4,14 +4,26 @@
     align-items: center;
     height: 1000px;
     width: 100%;
+    flex-direction: column;
     
 }
 
+.button{
+    margin:1%;
+    width:42%;
+    height:10%;
+    font-size: 40px;
+    border-radius: 10px;
+    background-color: lightgrey;
+}
+
+.button:hover {
+    background-color: gray;
+}
 
 .flip-box {
     display: flex;
-    font-weight: bold;
-    font-size: larger;
+    
     width: 500px;
     height: 300px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
@@ -29,8 +41,10 @@
   }
 
   .flip-box-inner-content{
-     margin-top: 18%;
-    
+     margin: 18%;
+     font-weight: bold;
+     font-size: larger;
+
   }
   
   /* Do an horizontal flip when you move the mouse over the flip box container */

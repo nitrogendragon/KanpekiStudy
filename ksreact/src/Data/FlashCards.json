@@ -1,8 +1,32 @@
 [
     {
         "english": "I",
-        "hiragana":"hiragana",
-        "kanji":"kanji"
-
+        "hiragana":"I hiragana",
+        "kanji":"I kanji"
+    },
+    {
+        "english": "is",
+        "hiragana":"is hiragana",
+        "kanji":"is kanji"
+    },
+    {
+        "english": "eat",
+        "hiragana":"eat hiragana",
+        "kanji":" eat kanji"
+    },
+    {
+        "english": "that",
+        "hiragana":"that hiragana",
+        "kanji":"that kanji"
+    },
+    {
+        "english": "She",
+        "hiragana":"she hiragana",
+        "kanji":"she kanji"
+    },
+    {
+        "english": "he",
+        "hiragana":" he hiragana",
+        "kanji":"he kanji"
     }
 ]
