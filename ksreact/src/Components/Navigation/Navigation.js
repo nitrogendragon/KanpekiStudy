@@ -13,6 +13,9 @@ export default function Navigation(props) {
         <button onClick={() => props.history.push('/VocabFlashCards')} value = "/VocabFlashCards">
             FlashCards
         </button>
+        <button onClick={() => props.history.push('/VocabSearch')} value = "/VocabSearch">
+            Vocab Search
+        </button>
       
     </div>
     )
