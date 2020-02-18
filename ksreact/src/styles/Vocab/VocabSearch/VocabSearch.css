@@ -89,18 +89,24 @@ Filter DropDown Section
 .filter-dropdown-content input{
     color: black;
     padding: 12px 16px;
-    min-width:160px;
+    min-width:80px;
     text-decoration: none;
-    display: block;
+    
+    
 }
 
 /* change color of dropdown buttons on hover */
 .filter-dropdown-content input:hover{
-    background-color: #ddd;
+    background-color: red;
     cursor: pointer;
 }
 
-
+.two-item-a-row-grid{
+    display:grid;
+    align-items: center;
+    grid-template-columns: repeat(2,50%);
+    grid-gap: 10px;
+}
 
 .filter-dropdown:hover .filter-dropdown-content {display: block;}
 
