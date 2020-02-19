@@ -1,12 +1,23 @@
 [
     {
-        "english": "",
-        "kanji": "",
-        "hiragana": "",
+        "english": "I",
+        "kanji": "私",
+        "hiragana": "わたし",
+        "romanji": "watashi",
+        "exampleSentence": "私は人間です.",
+        "exampleSentenceEnglish": "I am a human.",
+        "type": "noun",
+        "id": "0"
+    },
+    {
+        "english": "I",
+        "kanji": "I",
+        "hiragana": "I",
         "romanji": "",
         "exampleSentence": "",
         "exampleSentenceEnglish": "",
-        "type": ""
+        "type": "",
+        "id": "1"
     },
     {
         "english": "",
@@ -15,7 +26,8 @@
         "romanji": "",
         "exampleSentence": "",
         "exampleSentenceEnglish": "",
-        "type": ""
+        "type": "",
+        "id": "3"
     },
     {
         "english": "",
@@ -24,15 +36,7 @@
         "romanji": "",
         "exampleSentence": "",
         "exampleSentenceEnglish": "",
-        "type": ""
-    },
-    {
-        "english": "",
-        "kanji": "",
-        "hiragana": "",
-        "romanji": "",
-        "exampleSentence": "",
-        "exampleSentenceEnglish": "",
-        "type": ""
+        "type": "",
+        "id": "3"
     }
 ]
