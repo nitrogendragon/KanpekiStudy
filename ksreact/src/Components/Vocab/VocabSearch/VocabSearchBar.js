@@ -36,13 +36,16 @@ export default function VocabSearchBar(props) {
                 search = {searchValue}
                 kanji = {item.kanji}
                 english = {item.english}
+                altEnglish = {item.altEnglish}
                 hiragana = {item.hiragana}
                 romaji = {item.romaji}
-                exampleSentence = {item.exampleSentence}
+                exampleSentenceKanji = {item.exampleSentenceKanji}
+                exampleSentenceHiragana = {item.exampleSentenceHiragana}
+                exampleSentenceRomaji = {item.exampleSentenceRomaji}
                 exampleSentenceEnglish = {item.exampleSentenceEnglish}
                 type = {item.type}
                 /> 
-                : null)
+                : <></>)
                 setVocabSearchResults( results)
         }
     

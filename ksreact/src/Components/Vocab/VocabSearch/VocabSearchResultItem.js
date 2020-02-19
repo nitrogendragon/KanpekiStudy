@@ -7,7 +7,10 @@ export default function VocabSearchResultItem(props) {
             <p>{props.hiragana}</p>
             <p>{props.romaji}</p>
             <p>{props.english}</p>
-            <p>{props.exampleSentence}</p>
+            <p>{props.altEnglish}</p>
+            <p>{props.exampleSentenceKanji}</p>
+            <p>{props.exampleSentenceHiragana}</p>
+            <p>{props.exampleSentenceRomaji}</p>
             <p>{props.exampleSentenceEnglish}</p>
             <p>{props.type}</p>
             
