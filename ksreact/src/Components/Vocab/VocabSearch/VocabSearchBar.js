@@ -29,6 +29,12 @@ export default function VocabSearchBar(props) {
        createSearchResult()
     }
 
+    function handleKeyDown(e){
+        if(e.key === "Enter"){
+            handleSearch()
+        }
+    }
+
     function createSearchResult(){
          const results = vocabularyData.map( item => 
             {if(
@@ -66,9 +72,9 @@ export default function VocabSearchBar(props) {
                     className="search-input"
                     value = {searchValue}
                     onChange={e => setSearchValue(e.target.value)}
+                    onKeyDown={e => handleKeyDown(e)}
                     placeholder=" Search... Enter english, kanji, or hiragana depending on your filters"
                 />
-
                 <button onClick={handleSearch} className="search-button">SEARCH</button>
                 {/* Filter Section Starts */}
                 <div className="filter-dropdown">
