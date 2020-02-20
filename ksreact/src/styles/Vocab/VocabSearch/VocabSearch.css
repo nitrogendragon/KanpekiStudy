@@ -12,7 +12,7 @@
 .search-bar{
     display:grid;
     
-    grid-template-columns:77% 10% minmax(160px, auto);
+    grid-template-columns:77% 10% 13.2%;
     column-gap: space-evenly;
     align-content: stretch;
     height:100%;
@@ -115,4 +115,57 @@ Filter DropDown Section
     color:white;
 }
 
+
+/* vocab search result card */
+.vocab-search-result-card{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(auto,30%)) 40%;
+    column-gap: 10px;
+    border-bottom: 1px solid blue;
+    justify-content: center;
+    margin-top:10px;
+}
+
+.vocab-search-result-card-section-1{
+    display: grid;
+    grid-template-rows: 30%;
+    justify-content: center;
+    font-size: 20px;
+}
+.vocab-search-result-card-section-2{
+    display: grid;
+    grid-template-rows: 34%;
+    justify-content: center;
+    font-size: 20px;
+}
+.vocab-search-result-card-section-3{
+    display: grid;
+    grid-template-rows: 25%;
+    justify-content: center;
+    font-size: 20px;
+}
+.vocab-search-result-card-kanji{
+    font-size: 35px;
+   text-align: center;
+}
+.vocab-search-result-card-hiragana{
+    align-self: center;
+}
+.vocab-search-result-card-type{
+    padding-top: 25px;
+    align-self: center;
+}
+.vocab-search-result-card-english{
+    text-align: center;
+}
+.vocab-search-result-card-romaji{
+    align-self: top;
+    
+}
+.vocab-search-result-card-example-sentence{
+   
+}
+.vocab-search-result-card{
+   
+}
 

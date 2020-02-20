@@ -8,9 +8,7 @@ export default function VocabSearchBar(props) {
     const [searchValue, setSearchValue] = useState("")
     const [vocabSearchResults, setVocabSearchResults] = useState([])
     const vocabularyData = require('../../../Data/Vocabulary.json')
-    const vocabularyLength = vocabularyData.length
-    
-    let activeFilters = 0
+    let activeFilters
     function handleFilter(stateSetter,e){
         activeFilters = 0;
         // if we are going to end up making no searches possible we wont change
@@ -27,33 +25,40 @@ export default function VocabSearchBar(props) {
     }
     
     function handleSearch(){
-        if(acceptEnglish)
-        {
-            const results = vocabularyData.map( item => 
-            item.english.toString() === searchValue.toString() ? 
-            <VocabSearchResultItem 
-                key = {item.id}
-                search = {searchValue}
-                kanji = {item.kanji}
-                english = {item.english}
-                altEnglish = {item.altEnglish}
-                hiragana = {item.hiragana}
-                romaji = {item.romaji}
-                exampleSentenceKanji = {item.exampleSentenceKanji}
-                exampleSentenceHiragana = {item.exampleSentenceHiragana}
-                exampleSentenceRomaji = {item.exampleSentenceRomaji}
-                exampleSentenceEnglish = {item.exampleSentenceEnglish}
-                type = {item.type}
-                /> 
-                : <></>)
+        //deciding to do it this way in case I want more types of searches later
+       createSearchResult()
+    }
+
+    function createSearchResult(){
+         const results = vocabularyData.map( item => 
+            {if(
+            acceptEnglish && item.english.toString() === searchValue.toString() ||
+            acceptKanji && item.kanji.toString() === searchValue.toString() ||
+            acceptHiraganaRomaji && item.hiragana.toString() === searchValue.toString() ||
+            acceptHiraganaRomaji && item.romaji.toString() === searchValue.toString() ){
+                return(<VocabSearchResultItem 
+                    key = {item.id}
+                    search = {searchValue}
+                    kanji = {item.kanji}
+                    english = {item.english}
+                    altEnglish = {item.altEnglish}
+                    hiragana = {item.hiragana}
+                    romaji = {item.romaji}
+                    exampleSentenceKanji = {item.exampleSentenceKanji}
+                    exampleSentenceHiragana = {item.exampleSentenceHiragana}
+                    exampleSentenceRomaji = {item.exampleSentenceRomaji}
+                    exampleSentenceEnglish = {item.exampleSentenceEnglish}
+                    type = {item.type}
+            />) }}
+                )
                 setVocabSearchResults( results)
-        }
-    
+        
     }
 
     
     
     return (
+        <>
         <div className="search-bar-container">
             <div className="search-bar">
                 <input 
@@ -90,12 +95,10 @@ export default function VocabSearchBar(props) {
                     {/* End Filter Section */}
                 </div>
             </div>
-            <div>{vocabSearchResults}</div>
-            <p>{acceptEnglish.toString()}</p>
-            <p>{acceptHiraganaRomaji.toString()}</p>
-            <p>{acceptKanji.toString()}</p>
-            <p>{searchValue.toString()}</p>
+            
         </div>
+        {vocabSearchResults}
+        </>
         
     )
 }
