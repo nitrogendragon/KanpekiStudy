@@ -36,28 +36,34 @@ export default function VocabSearchBar(props) {
     }
 
     function createSearchResult(){
-         const results = vocabularyData.map( item => 
-            {if(
-            acceptEnglish && item.english.toString() === searchValue.toString() ||
-            acceptKanji && item.kanji.toString() === searchValue.toString() ||
-            acceptHiraganaRomaji && item.hiragana.toString() === searchValue.toString() ||
-            acceptHiraganaRomaji && item.romaji.toString() === searchValue.toString() ){
-                return(<VocabSearchResultItem 
-                    key = {item.id}
-                    search = {searchValue}
-                    kanji = {item.kanji}
-                    english = {item.english}
-                    altEnglish = {item.altEnglish}
-                    hiragana = {item.hiragana}
-                    romaji = {item.romaji}
-                    exampleSentenceKanji = {item.exampleSentenceKanji}
-                    exampleSentenceHiragana = {item.exampleSentenceHiragana}
-                    exampleSentenceRomaji = {item.exampleSentenceRomaji}
-                    exampleSentenceEnglish = {item.exampleSentenceEnglish}
-                    type = {item.type}
-            />) }}
-                )
-                setVocabSearchResults( results)
+         const results = vocabularyData.map
+         ( item => 
+            {   
+                if(
+                acceptEnglish && item.english.toString() === searchValue.toString() ||
+                acceptKanji && item.kanji.toString() === searchValue.toString() ||
+                acceptHiraganaRomaji && item.hiragana.toString() === searchValue.toString() ||
+                acceptHiraganaRomaji && item.romaji.toString() === searchValue.toString() )
+                {
+                    return(<VocabSearchResultItem 
+                        key = {item.id}
+                        search = {searchValue}
+                        kanji = {item.kanji}
+                        english = {item.english}
+                        altEnglish = {item.altEnglish}
+                        hiragana = {item.hiragana}
+                        romaji = {item.romaji}
+                        exampleSentenceKanji = {item.exampleSentenceKanji}
+                        exampleSentenceHiragana = {item.exampleSentenceHiragana}
+                        exampleSentenceRomaji = {item.exampleSentenceRomaji}
+                        exampleSentenceEnglish = {item.exampleSentenceEnglish}
+                        type = {item.type}
+                        />
+                        ) 
+                }
+            }
+        )
+        setVocabSearchResults( results)
         
     }
 
