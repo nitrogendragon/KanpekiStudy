@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import VocabSearchResultItem from './VocabSearchResultItem'
+import VocabFilterDropDown from './VocabFilterDropDown'
 import '../../../styles/Vocab/VocabSearch/VocabSearch.css'
 export default function VocabSearchBar(props) {
     const [acceptEnglish, setAcceptEnglish] = useState(true)
     const [acceptKanji, setAcceptKanji] = useState(true)
-    const [acceptHiraganaRomaji, setAcceptHiraganaRomaji] = useState(true)
+    const [acceptHiragana, setAcceptHiragana] = useState(true)
+    const [acceptRomaji, setAcceptRomaji] = useState(true)
     const [searchValue, setSearchValue] = useState("")
     const [vocabSearchResults, setVocabSearchResults] = useState([])
     const vocabularyData = require('../../../Data/Vocabulary.json')
@@ -13,7 +15,8 @@ export default function VocabSearchBar(props) {
         activeFilters = 0;
         // if we are going to end up making no searches possible we wont change
         acceptKanji ? activeFilters += 1 : activeFilters += 0
-        acceptHiraganaRomaji ? activeFilters += 1 : activeFilters += 0
+        acceptHiragana ? activeFilters += 1 : activeFilters += 0
+        acceptRomaji ? activeFilters += 1 : activeFilters += 0
         acceptEnglish ? activeFilters += 1 : activeFilters +=0
         //Note that this instance of e.target.checked seems to be based off after the click
         // so if it's actually false when clicked which is what our || exception is for
@@ -42,8 +45,8 @@ export default function VocabSearchBar(props) {
                 if(
                 acceptEnglish && item.english.toString() === searchValue.toString() ||
                 acceptKanji && item.kanji.toString() === searchValue.toString() ||
-                acceptHiraganaRomaji && item.hiragana.toString() === searchValue.toString() ||
-                acceptHiraganaRomaji && item.romaji.toString() === searchValue.toString() )
+                acceptHiragana && item.hiragana.toString() === searchValue.toString() ||
+                acceptRomaji && item.romaji.toString() === searchValue.toString() )
                 {
                     return(<VocabSearchResultItem 
                         key = {item.id}
@@ -79,35 +82,26 @@ export default function VocabSearchBar(props) {
                     value = {searchValue}
                     onChange={e => setSearchValue(e.target.value)}
                     onKeyDown={e => handleKeyDown(e)}
-                    placeholder=" Search... Enter english, kanji, or hiragana depending on your filters"
+                    placeholder="  Enter english, kanji, hiragana,
+                     or romaji depending on your filters... Hit enter or press SEARCH to search."
                 />
                 <button onClick={handleSearch} className="search-button">SEARCH</button>
-                {/* Filter Section Starts */}
-                <div className="filter-dropdown">
-                    <button className="filter-dropdown-button">FILTER</button>
-                    <div className="filter-dropdown-content">
-                        <label className="two-item-a-row-grid">
-                            <input 
-                                type = "checkbox" 
-                                checked = {acceptEnglish} 
-                                onChange={e => handleFilter(setAcceptEnglish, e)}>
-                            </input><p>English</p>
-                            <input 
-                                type = "checkbox" 
-                                checked = {acceptKanji}                              
-                                onChange={e => handleFilter(setAcceptKanji, e)}>
-                            </input><p>Kanji</p>
-                            <input 
-                                type = "checkbox" 
-                                checked = {acceptHiraganaRomaji}
-                                onChange={e => handleFilter(setAcceptHiraganaRomaji, e)}>
-                            </input><p>Hiragana / Romaji</p>
-                        </label>
-                    </div>
-                    {/* End Filter Section */}
-                </div>
+                <VocabFilterDropDown 
+                    handleFilter = {handleFilter}
+                    acceptEnglish = {acceptEnglish}
+                    acceptHiragana = {acceptHiragana}
+                    acceptRomaji = {acceptRomaji}
+                    acceptKanji = {acceptKanji}
+                    setAcceptEnglish = {setAcceptEnglish}
+                    setAcceptHiragana = {setAcceptHiragana}
+                    setAcceptRomaji = {setAcceptRomaji}
+                    setAcceptKanji = {setAcceptKanji}
+                    />
             </div>
-            
+            {/* <p>The value of acceptEnglish is {acceptEnglish.toString()}</p>
+            <p>The value of acceptKanji is {acceptKanji.toString()}</p>
+            <p>The value of acceptHiragana is {acceptHiragana.toString()}</p>
+            <p>The value of acceptRomaji is {acceptRomaji.toString()}</p> */}
         </div>
         {vocabSearchResults}
         </>
