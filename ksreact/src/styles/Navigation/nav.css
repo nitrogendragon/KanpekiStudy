@@ -14,7 +14,7 @@
 
 .header-nav{
     display:grid;
-    grid-template-columns: minmax(auto,30%) repeat(3, minmax(auto, 25%));
+    grid-template-columns: minmax(auto,30%) repeat(4, minmax(auto, 25%));
     align-items: center;
     width:100%;
     min-height:80px;

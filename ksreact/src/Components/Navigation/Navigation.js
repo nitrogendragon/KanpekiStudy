@@ -10,6 +10,7 @@ export default function Navigation(props) {
         <NavButton history = {props.history} address = '/VocabQuiz' buttonText = "Vocab Quiz" />
         <NavButton history = {props.history} address = '/VocabFlashCards' buttonText = "Vocab Flash Cards " />
         <NavButton history = {props.history} address = '/VocabSearch' buttonText = "Vocab Search " />
+        <NavButton history = {props.history} address = '/VocabMemoryGame' buttonText = "Vocab Memory Game " />
     </div>
     )
 }
