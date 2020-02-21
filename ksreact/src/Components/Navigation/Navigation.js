@@ -1,22 +1,14 @@
 import React from 'react'
 import{} from 'react-router-dom'
+import NavButton from './NavButton'
 export default function Navigation(props) {
     
     return (
     <div className='header-nav'>
-        <button onClick={() => props.history.push('/Home')} value = "/Home">
-            Home
-        </button>
-        <button onClick={() => props.history.push('/VocabQuiz')} value = "/VocabQuiz">
-            VocabQuiz
-        </button>
-        <button onClick={() => props.history.push('/VocabFlashCards')} value = "/VocabFlashCards">
-            FlashCards
-        </button>
-        <button onClick={() => props.history.push('/VocabSearch')} value = "/VocabSearch">
-            Vocab Search
-        </button>
-      
+        <NavButton history = {props.history} address = '/Home' buttonText = "Home" />
+        <NavButton history = {props.history} address = '/VocabQuiz' buttonText = "Vocab Quiz" />
+        <NavButton history = {props.history} address = '/VocabFlashCards' buttonText = "Vocab Flash Cards " />
+        <NavButton history = {props.history} address = '/VocabSearch' buttonText = "Vocab Search " />
     </div>
     )
 }
