@@ -43,10 +43,12 @@ export default function VocabSearchBar(props) {
          ( item => 
             {   
                 if(
-                acceptEnglish && item.english.toString() === searchValue.toString() ||
+                acceptEnglish && item.english.toString().toLocaleUpperCase() === 
+                searchValue.toString().toLocaleUpperCase() ||
                 acceptKanji && item.kanji.toString() === searchValue.toString() ||
                 acceptHiragana && item.hiragana.toString() === searchValue.toString() ||
-                acceptRomaji && item.romaji.toString() === searchValue.toString() )
+                acceptRomaji && item.romaji.toString().toLocaleUpperCase() === 
+                searchValue.toString().toLocaleUpperCase() )
                 {
                     return(<VocabSearchResultItem 
                         key = {item.id}

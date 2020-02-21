@@ -10,9 +10,8 @@
 }
 
 .search-bar{
-    display:flex;
-    
-    grid-template-columns:77% 10% 13.2%;
+    display:grid;
+    grid-template-columns:minmax(auto,74%) minmax(13%, auto) minmax(13%,auto);
     column-gap: space-evenly;
     align-content: stretch;
     height:100%;
@@ -24,17 +23,18 @@
 .search-input{
     border:none;
     padding-left:5px;
-    width:77%;
+    font-size: auto;
     font-weight:bold;
-    font-size:15px;
+    
 }
 
 .search-button{
     background-color: lightblue;
     font-weight:bold;
-    width:13%;
-    font-size: 1.2em;
+    min-width:13%;
+    font-size: auto;
     border:none;
+    
 }
 
 .search-button:hover,
@@ -55,7 +55,7 @@ Filter DropDown Section
 .filter-dropdown{
     position: relative;
     height: 100%;
-    width:10%;
+    
     
     
 }
@@ -64,9 +64,10 @@ Filter DropDown Section
     border: none;
     width: 100%;
     background-color: rgb(207, 205, 205);
+    font-size: auto;
     font-weight: bold;
-    font-size: 1.2em;
     height:100%;
+    transition: background-color 1000ms;
 }
 
 
@@ -92,19 +93,21 @@ Filter DropDown Section
     text-decoration: none;
 }
 
-/* change color of dropdown buttons on hover */
-.filter-dropdown-content input:hover{
-    background-color: red;
-    cursor: pointer;
-}
 
 
-.hover-dark{
+
+.hover-dark-input{
+    display:grid;
+    grid-template-rows: repeat(2, 50%);
     height:40px;
-    text-align: center;
+    cursor:pointer;
+    background-color:  rgb(207, 205, 205);
+    /* background-color: linear-gradient(130deg, rgb(253, 45, 201) 05%, rgba(34,193,195,1) 100%); */
+    transition: background-color 100ms;
+    
 }
-.hover-dark:hover{
-    background-color: lightslategray;
+.hover-dark-input:hover{
+    background-color:  rgb(34,193,195);
 }
 
 .filter-dropdown:hover .filter-dropdown-content {
@@ -119,7 +122,8 @@ Filter DropDown Section
 }
 
 
-/* vocab search result card */
+/* vocab search result card styling starts here */
+
 .vocab-search-result-card{
     display:grid;
     grid-template-columns: repeat(2, minmax(auto,30%)) 40%;
