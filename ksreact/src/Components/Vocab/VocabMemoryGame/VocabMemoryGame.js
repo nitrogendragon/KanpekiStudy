@@ -10,18 +10,23 @@ export default function VocabMemoryGame() {
     const [timeLeft, setTimeLeft] = useState(0)
     const [totalTime, setTotalTime] = useState(10)
     const [timerActive, setTimerActive ] = useState(false)
-    
-    
+    const [displayAll, setDisplayAll] = useState(false);
+
     function toggle(){
         if(timeLeft!= 0){
         setTimerActive(!timerActive)
         }
     }
 
+    function toggleDisplay(){
+        setDisplayAll(!displayAll)
+    }
+
     function reset(){
         setTimeLeft(totalTime)
         setTimerActive(false)
     }
+
 
     useEffect(() => {
         let interval = null
@@ -41,13 +46,26 @@ export default function VocabMemoryGame() {
         return () => clearInterval(interval)
     }, [timerActive, timeLeft])
 
-
+    if(displayAll){
     return (
+        
         <div>
             <Timer timeRemaining = {timeLeft} />
             <button onClick = {toggle}>Start CountDown</button>
             <button onClick = {reset}>Reset CountDown</button>
-    <p>TimerActive is currently {timerActive.toString()}</p>
+            <p>TimerActive is currently {timerActive.toString()}</p>
+            <button onClick = {toggleDisplay}>Hide</button>
         </div>
+        
     )
+    }
+    else{
+        return(
+            <button onClick = {toggleDisplay}>Show</button>
+        )
+    }
+
+    
+
+    
 }
