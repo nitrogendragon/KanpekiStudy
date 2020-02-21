@@ -7,6 +7,7 @@ import VocabFlashCards from '../src/Components/Vocab/VocabFlashCards'
 import VocabSearch from '../src/Components/Vocab/VocabSearch/VocabSearchContainer'
 import history from './History'
 import '../src/App.css'
+import VocabMemoryGame from './Components/Vocab/VocabMemoryGame/VocabMemoryGame'
 
 export default function App() {
  
@@ -20,6 +21,7 @@ export default function App() {
         <Route component= {VocabQuizContainer} exact path ="/VocabQuiz" />
         <Route component= {VocabSearch} exact path ="/VocabSearch" />
         <Route component= {VocabFlashCards} exact path = "/VocabFlashCards" />
+        <Route component= {VocabMemoryGame} exact path = "/VocabMemoryGame" />
       </Switch>
     </Router>
     </>
