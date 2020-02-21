@@ -1,0 +1,29 @@
+.nav-button{
+    min-height: 80px;
+    min-width:10%;
+    max-width: auto;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgb(253, 45, 201) 05%, rgba(34,193,195,1) 100%);
+    border:none;
+    /* border-right:1px solid purple; */
+    font-weight:bolder;
+    font-size:18px;
+    transition: font-size 200ms;
+}
+
+
+.header-nav{
+    display:grid;
+    grid-template-columns: minmax(auto,30%) repeat(3, minmax(auto, 25%));
+    align-items: center;
+    width:100%;
+    min-height:80px;
+    background-color:#b6d4f8;
+    
+    box-shadow: 0px 0px 4px 2px ;
+  }
+.nav-button:hover,
+.nav-button:focus{
+    color:white;
+    font-size: 20px;
+}

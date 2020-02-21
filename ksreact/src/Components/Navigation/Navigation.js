@@ -1,6 +1,7 @@
 import React from 'react'
 import{} from 'react-router-dom'
 import NavButton from './NavButton'
+import '../../styles/Navigation/nav.css'
 export default function Navigation(props) {
     
     return (

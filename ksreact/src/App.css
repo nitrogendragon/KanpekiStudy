@@ -2,15 +2,7 @@ body{
   background-color: #f2f7fd;
 }
 
-.header-nav{
-  display:flex;
-  align-items: center;
-  width:100%;
-  min-height:80px;
-  background-color:#b6d4f8;
-  border-top: 2px solid lightcoral;
-  box-shadow: 0px 2px 1px 2px ;
-}
+
 
 navigation-button {
   display: flex;
