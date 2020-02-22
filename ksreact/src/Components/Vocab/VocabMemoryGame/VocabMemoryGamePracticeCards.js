@@ -7,6 +7,7 @@ export default function VocabMemoryGamePracticeCards(props) {
     let seedrandom = require('seedrandom')
     let rng = seedrandom('added entropy.', {entropy: true})
     
+    
     const pickAndSetPairs= () =>
     {
         
@@ -44,19 +45,14 @@ export default function VocabMemoryGamePracticeCards(props) {
     }
 
 
-    
-        
-        
-        
-    
-
-
     if(shouldGenNumbers){
         setShouldGenNumbers(false)
         pickAndSetPairs()
         cards()
         props.startCountDown()
     }
+
+
     function cards() {
         for(let i = 0; i < totalCards; i++){
             setCardsArray([...cardsArray, cardsArray[i] =
@@ -70,7 +66,7 @@ export default function VocabMemoryGamePracticeCards(props) {
     }
 
     return (
-        <div>{[cardsArray]}</div>
+        <div>{cardsArray}</div>
         
     )
 }

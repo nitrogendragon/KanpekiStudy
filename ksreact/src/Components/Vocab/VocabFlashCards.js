@@ -7,14 +7,17 @@ export default function VocabFlashCards() {
     const [flashCardFrontValueBottom, setFlashCardFrontValueBottom] = useState()
     const [flashCardBackValueTop, setFlashCardBackValueTop] = useState('Boo!')
     const [flashCardBackValueBottom, setFlashCardBackValueBottom] = useState()
+    let seedrandom = require('seedrandom')
+    let rng = seedrandom('added entropy.', {entropy: true})
+    
     let index = 0
     let engFront
 
     
 
     function SetFrontBackValueType(){
-        index = Math.random()
-        console.log(index)
+        index =  Math.floor(rng() * vocabQuizLength)
+        // console.log(index)
         if(index < .5){
             engFront = true;
         }
@@ -22,8 +25,8 @@ export default function VocabFlashCards() {
     }
     function SetRandomFlashCard(){
         SetFrontBackValueType()
-        index = Math.floor(Math.random() * vocabQuizLength)
-        console.log(index)
+        index = Math.floor(rng() * vocabQuizLength)
+        // console.log(index)
         if(engFront){
             setFlashCardFrontValueTop(FlashCardsData[index].english.toString())
             setFlashCardFrontValueBottom("")
