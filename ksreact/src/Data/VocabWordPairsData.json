@@ -33,150 +33,150 @@
         "english": "I (boyish)",
         "japanese": "僕",
         "romaji": "boku",
-        "id": 6
+        "id": 5
     },
     {
         "english": "I (masculine)",
         "japanese": "俺",
         "romaji": "ore",
-        "id": 7
+        "id": 6
     },
     {
         "english": "girl",
         "japanese": "女の子",
         "romaji": "on'nanoko",
-        "id": 8
+        "id": 7
     },
     {
         "english": "woman",
         "japanese": "女",
         "romaji": "on'na",
-        "id": 9
+        "id": 8
     },
     {
         "english": "boy",
         "japanese": "男の子",
         "romaji": "otokonoko",
-        "id": 10
+        "id":9
     },
     {
         "english": "man",
         "japanese": "男",
         "romaji": "otoko",
-        "id": 11
+        "id": 10
     },
     {
         "english": "fish",
         "japanese": "魚",
         "romaji": "sakana",
-        "id": 12
+        "id": 11
     },
     {
         "english": "vegetables",
         "japanese": "野菜",
         "romaji": "yasai",
-        "id": 13
+        "id": 12
     },
     {
         "english": "bus",
         "japanese": "バス",
         "romaji": "basu",
-        "id": 14
+        "id": 13
     },
     {
         "english": "get on (ride)",
         "japanese": "乗る",
         "romaji": "noru",
-        "id": 15
+        "id": 14
     },
     {
         "english": "tennis",
         "japanese": "テニス",
         "romaji": "tenisu",
-        "id": 16
+        "id": 15
     },
     {
         "english": "play",
         "japanese": "遊ぶ",
         "romaji": "asobu",
-        "id": 17
+        "id": 16
     },
     {
         "english": "meat",
         "japanese": "肉",
         "romaji": "niku",
-        "id": 18
+        "id": 17
     },
     {
         "english": "lovely",
         "japanese": "素敵",
         "romaji": "suteki",
-        "id": 19
+        "id": 18
     },
     {
         "english": "nice",
         "japanese": "素敵な",
         "romaji": "sutekina",
-        "id": 20
+        "id": 19
     },
     {
         "english": "park",
         "japanese": "公園",
         "romaji": "kouen",
-        "id": 21
+        "id": 20
     },
     {
         "english": "to eat",
         "japanese": "食べる",
         "romaji": "taberu",
-        "id": 22
+        "id": 21
     },
     {
         "english": "food",
         "japanese": "食べ物",
         "romaji": "tabemono",
-        "id": 23
+        "id": 22
     },
     {
         "english": "cooking (cuisine)",
         "japanese": "料理",
         "romaji": "ryouri",
-        "id": 24
+        "id": 23
     },
     {
         "english": "cook, chef",
         "japanese": "料理人",
-        "id": 25
+        "id": 24
     },
     {
         "english": "head (chief, director) of a section or department",
         "japanese": "部長",
         "romaji": "buchou",
-        "id": 26
+        "id": 25
     },
     {
         "english": "master, expert",
         "japanese": "名人",
         "romaji": "neijin",
-        "id": 27
+        "id": 26
     },
     {
         "english": "teacher, instructor, master",
         "japanese": "先生",
         "romaji": "sensei",
-        "id": 28
+        "id": 27
     },
     {
         "english": "topic marker particle",
         "japanese": "は",
         "romaji": "wa",
-        "id": 29
+        "id": 28
     },
     {
         "english": "post office",
         "japanese": "郵便局",
         "romaji": "yuubinkyoku",
-        "id": 30
+        "id": 29
     }
     
 ]
