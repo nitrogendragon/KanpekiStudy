@@ -1,0 +1,187 @@
+[
+    {
+        "english": "I",
+        "japanese": "私",
+        "romaji": "watashi",
+        "id": 1
+    },
+    {
+        "english": "you",
+        "japanese": "君",
+        "romaji": "kimi",
+        "id": 2
+    },
+    {
+        "english": "chicken",
+        "japanese": "鶏",
+        "romaji": "niwatori",
+        "id": 3
+    },
+    {
+        "english": "chicken (meat)",
+        "japanese": "鶏肉",
+        "romaji": "tori niku",
+        "id": 4
+    },
+    {
+        "english": "pizza",
+        "japanese": "ピザ",
+        "romaji": "piza",
+        "id": 5
+    },
+    {
+        "english": "I (boyish)",
+        "japanese": "僕",
+        "romaji": "boku",
+        "id": 6
+    },
+    {
+        "english": "I (masculine)",
+        "japanese": "俺",
+        "romaji": "ore",
+        "id": 7
+    },
+    {
+        "english": "girl",
+        "japanese": "女の子",
+        "romaji": "on'nanoko",
+        "id": 8
+    },
+    {
+        "english": "woman",
+        "japanese": "女",
+        "romaji": "on'na",
+        "id": 9
+    },
+    {
+        "english": "boy",
+        "japanese": "男の子",
+        "romaji": "otokonoko",
+        "id": 10
+    },
+    {
+        "english": "man",
+        "japanese": "男",
+        "romaji": "otoko",
+        "id": 11
+    },
+    {
+        "english": "fish",
+        "japanese": "魚",
+        "romaji": "sakana",
+        "id": 12
+    },
+    {
+        "english": "vegetables",
+        "japanese": "野菜",
+        "romaji": "yasai",
+        "id": 13
+    },
+    {
+        "english": "bus",
+        "japanese": "バス",
+        "romaji": "basu",
+        "id": 14
+    },
+    {
+        "english": "get on (ride)",
+        "japanese": "乗る",
+        "romaji": "noru",
+        "id": 15
+    },
+    {
+        "english": "tennis",
+        "japanese": "テニス",
+        "romaji": "tenisu",
+        "id": 16
+    },
+    {
+        "english": "play",
+        "japanese": "遊ぶ",
+        "romaji": "asobu",
+        "id": 17
+    },
+    {
+        "english": "meat",
+        "japanese": "肉",
+        "romaji": "niku",
+        "id": 18
+    },
+    {
+        "english": "lovely",
+        "japanese": "素敵",
+        "romaji": "suteki",
+        "id": 19
+    },
+    {
+        "english": "nice",
+        "japanese": "素敵な",
+        "romaji": "sutekina",
+        "id": 20
+    },
+    {
+        "english": "park",
+        "japanese": "公園",
+        "romaji": "kouen",
+        "id": 21
+    },
+    {
+        "english": "to eat",
+        "japanese": "食べる",
+        "romaji": "taberu",
+        "id": 22
+    },
+    {
+        "english": "food",
+        "japanese": "食べ物",
+        "romaji": "tabemono",
+        "id": 23
+    },
+    {
+        "english": "cooking (cuisine)",
+        "japanese": "料理",
+        "romaji": "ryouri",
+        "id": 24
+    },
+    {
+        "english": "cook, chef",
+        "japanese": "料理人",
+        "id": 25
+    },
+    {
+        "english": "head (chief, director) of a section or department",
+        "japanese": "部長",
+        "romaji": "buchou",
+        "id": 26
+    },
+    {
+        "english": "master, expert",
+        "japanese": "名人",
+        "romaji": "neijin",
+        "id": 27
+    },
+    {
+        "english": "teacher, instructor, master",
+        "japanese": "先生",
+        "romaji": "sensei",
+        "id": 28
+    },
+    {
+        "english": "topic marker particle",
+        "japanese": "は",
+        "romaji": "wa",
+        "id": 29
+    },
+    {
+        "english": "post office",
+        "japanese": "郵便局",
+        "romaji": "yuubinkyoku",
+        "id": 30
+    },
+    {
+        "english": "",
+        "japanese": "",
+        "romaji": "",
+        "id": 31
+    }
+]

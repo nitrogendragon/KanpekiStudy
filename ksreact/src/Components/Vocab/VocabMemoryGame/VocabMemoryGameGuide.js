@@ -4,11 +4,13 @@ export default function VocabMemoryGameGuide(props) {
     function handleStart(){
         props.start()
     }
+    
     if (props.active)
     {
         return (
             <div>
                 <button onClick={handleStart}>Start the Game</button>
+                
                 <p>Welcome to the vocabulary memory game mode! If you have already played and know
                     what you are doing feel free to go ahead and hit the start button. If not, worry not, you
                     will be going in no time.

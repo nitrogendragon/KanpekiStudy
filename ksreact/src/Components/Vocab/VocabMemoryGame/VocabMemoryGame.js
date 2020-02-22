@@ -1,6 +1,7 @@
 import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 import Timer from '../../General/Timer'
 import VocabMemoryGameGuide from './VocabMemoryGameGuide'
+import VocabMemoryGamePractice from './VocabMemoryGamePractice'
 import React, {useState, useEffect} from 'react'
 /*
 reference for setting up timer with hooks
@@ -9,25 +10,20 @@ https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 */
 export default function VocabMemoryGame() {
     const [timeLeft, setTimeLeft] = useState(0)
-    const [totalTime, setTotalTime] = useState(10)
+    const [totalTime, setTotalTime] = useState(30)
     const [timerActive, setTimerActive ] = useState(false)
     const [displayGuide, setDisplayGuide] = useState(true);
     const [displayPractice, setDisplayPractice] = useState(false);
     const [displayGame, setDisplayGame] = useState(false);
 
+    const [englishArray, setEnglishArray] = useState([])
+    const [japaneseArray, setJapaneseArray] = useState([])
+    const [idArray, setIdArray] = useState([])
+    const wordPairsData = require('../../../Data/VocabWordPairsData.json')
+    const wordPairsLength = wordPairsData.length
+
     
-    function renderPractice(){
-        if(displayPractice){
-            return(
-                <div>
-                    <Timer timeRemaining = {timeLeft} />
-                    <button onClick = {toggle}>Start CountDown</button>
-                    <button onClick = {reset}>Reset CountDown</button>
-                    <p>TimerActive is currently {timerActive.toString()}</p>   
-                </div>
-            )
-        }
-    }
+    
     function toggle(){
         if(timeLeft!= 0){
         setTimerActive(!timerActive)
@@ -35,12 +31,27 @@ export default function VocabMemoryGame() {
     }
 
     function startPractice(){
+        setTotalTime(60)
+        reset()
         setDisplayGuide(false)
         setDisplayPractice(true)
     }
     function startTest(){
+        setTotalTime(60)
+        reset()
         setDisplayPractice(false)
         setDisplayGame(true)
+    }
+
+    function stopTest(){
+
+    }
+
+    function returnToGuide(){
+        setDisplayGame(false)
+        setDisplayPractice(false)
+        setDisplayGuide(true)
+        
     }
 
     function reset(){
@@ -63,19 +74,35 @@ export default function VocabMemoryGame() {
             clearInterval(interval)
             setTimerActive(false)
             setTimeLeft(0)
+            if(displayPractice)
+            {
+                startTest()
+            }
+            else
+            {
+                stopTest()
+            }
         }
         return () => clearInterval(interval)
     }, [timerActive, timeLeft])
 
     
-    
-    
-    
-    
     return (
         <div>
             <VocabMemoryGameGuide start = {startPractice} active = {displayGuide}/>
-            {renderPractice()}
+            <VocabMemoryGamePractice 
+                toGuide = {returnToGuide} 
+                active = {displayPractice}
+                timeLeft = {timeLeft}
+                toggle = {toggle}
+                reset = {reset}
+                timerActive = {timerActive}
+                englishArray = {englishArray}
+                japaneseArray = {japaneseArray}
+                idArray = {idArray}
+                wordPairsData = {wordPairsData}
+                wordPairsLength = {wordPairsLength}
+            />
 
         </div>
         
