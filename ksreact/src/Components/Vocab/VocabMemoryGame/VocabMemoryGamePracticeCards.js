@@ -55,6 +55,7 @@ export default function VocabMemoryGamePracticeCards(props) {
         setShouldGenNumbers(false)
         pickAndSetPairs()
         cards()
+        props.startCountDown()
     }
     function cards() {
         for(let i = 0; i < totalCards; i++){
