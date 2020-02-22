@@ -18,6 +18,7 @@ export default function VocabMemoryGame() {
 
     const [englishArray, setEnglishArray] = useState([])
     const [japaneseArray, setJapaneseArray] = useState([])
+    const [romajiArray, setRomajiArray] = useState([])
     const [idArray, setIdArray] = useState([])
     const wordPairsData = require('../../../Data/VocabWordPairsData.json')
     const wordPairsLength = wordPairsData.length
@@ -98,9 +99,11 @@ export default function VocabMemoryGame() {
                 reset = {reset}
                 timerActive = {timerActive}
                 englishArray = {englishArray}
+                romajiArray = {romajiArray}
                 japaneseArray = {japaneseArray}
                 setEnglishArray = {setEnglishArray}
                 setJapaneseArray = {setJapaneseArray}
+                setRomajiArray = {setRomajiArray}
                 idArray = {idArray}
                 setIdArray = {setIdArray}
                 wordPairsData = {wordPairsData}

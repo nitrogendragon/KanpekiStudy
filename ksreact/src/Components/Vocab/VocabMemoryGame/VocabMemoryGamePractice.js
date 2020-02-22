@@ -18,9 +18,11 @@ export default function VocabMemoryGamePractice(props) {
                 <VocabMemoryGamePracticeCards 
                     genNumbers = {true}
                     englishArray = {props.englishArray}
+                    romajiArray = {props.romajiArray}
                     japaneseArray = {props.japaneseArray}
                     idArray = {props.idArray}
                     setEnglishArray = {props.setEnglishArray}
+                    setRomajiArray = {props.setRomajiArray}
                     setJapaneseArray = {props.setJapaneseArray}
                     setIdArray = {props.setIdArray}
                     wordPairsData = {props.wordPairsData}
