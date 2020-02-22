@@ -13,7 +13,7 @@ export default function VocabMemoryGame() {
     const [timerActive, setTimerActive ] = useState(false)
     const [displayGuide, setDisplayGuide] = useState(true);
     const [displayPractice, setDisplayPractice] = useState(false);
-    const [displayTest, setDisplayTest] = useState(false);
+    const [displayGame, setDisplayGame] = useState(false);
 
     
     function renderPractice(){
@@ -35,7 +35,12 @@ export default function VocabMemoryGame() {
     }
 
     function startPractice(){
-
+        setDisplayGuide(false)
+        setDisplayPractice(true)
+    }
+    function startTest(){
+        setDisplayPractice(false)
+        setDisplayGame(true)
     }
 
     function reset(){
@@ -69,7 +74,7 @@ export default function VocabMemoryGame() {
     
     return (
         <div>
-            <VocabMemoryGameGuide start = {startPractice}/>
+            <VocabMemoryGameGuide start = {startPractice} active = {displayGuide}/>
             {renderPractice()}
 
         </div>
