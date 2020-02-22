@@ -1,5 +1,4 @@
 import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
-import Timer from '../../General/Timer'
 import VocabMemoryGameGuide from './VocabMemoryGameGuide'
 import VocabMemoryGamePractice from './VocabMemoryGamePractice'
 import React, {useState, useEffect} from 'react'
@@ -9,7 +8,7 @@ https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
 */
 export default function VocabMemoryGame() {
-    const [timeLeft, setTimeLeft] = useState(60)
+    const [timeLeft, setTimeLeft] = useState(10)
     const [totalTime, setTotalTime] = useState(60)
     const [timerActive, setTimerActive ] = useState(false)
     const [displayGuide, setDisplayGuide] = useState(true);
@@ -74,7 +73,7 @@ export default function VocabMemoryGame() {
         if(timeLeft <= 0){
             clearInterval(interval)
             setTimerActive(false)
-            setTimeLeft(0)
+            
             if(displayPractice)
             {
                 startTest()
@@ -85,7 +84,7 @@ export default function VocabMemoryGame() {
             }
         }
         return () => clearInterval(interval);
-    })
+    },[timerActive, timeLeft, totalTime, displayPractice])
 
     
     return (

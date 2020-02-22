@@ -1,0 +1,16 @@
+.practice-card{
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.practice-card p{
+    display:flex;
+    border: 1px solid blue;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 100%;
+}

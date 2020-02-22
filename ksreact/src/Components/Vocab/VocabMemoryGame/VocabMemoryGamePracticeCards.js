@@ -1,18 +1,19 @@
 import React,  {useState} from 'react'
-
+import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 export default function VocabMemoryGamePracticeCards(props) {
     const [shouldGenNumbers, setShouldGenNumbers] = useState(props.genNumbers)
     const [totalCards, setTotalCards] = useState(10)
     const [cardsArray, setCardsArray] = useState([])
     let seedrandom = require('seedrandom')
     let rng = seedrandom('added entropy.', {entropy: true})
-    
-    
-    const pickAndSetPairs= () =>
+    let i, i2 = 0
+
+
+    const pickAndSetPairs = () =>
     {
         
-        let i = 0;
-        let i2 =0;
+        i = 0;
+        i2 =0;
         while(i < totalCards){
             let repeated = false
             let r = Math.floor(rng() * props.wordPairsLength)
@@ -24,7 +25,7 @@ export default function VocabMemoryGamePracticeCards(props) {
             }
             if(repeated)
             {
-                
+                console.log("there was a repeat")
             }
             else{
             props.setIdArray([props.idArray[i] = r])
@@ -41,22 +42,24 @@ export default function VocabMemoryGamePracticeCards(props) {
         console.log(props.englishArray)
         console.log(props.romajiArray)
         console.log(props.japaneseArray)
-
+        console.log("total cards" + totalCards)
     }
 
 
     if(shouldGenNumbers){
         setShouldGenNumbers(false)
+        
         pickAndSetPairs()
         cards()
         props.startCountDown()
+    
     }
 
 
     function cards() {
         for(let i = 0; i < totalCards; i++){
             setCardsArray([...cardsArray, cardsArray[i] =
-            <div key = {props.idArray[i]}>
+            <div className="practice-card" key = {props.idArray[i]}>
             <p>{props.englishArray[i]}</p>
             <p>{props.japaneseArray[i]}</p>
             <p>{props.romajiArray[i]}</p>

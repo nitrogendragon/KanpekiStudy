@@ -1,9 +1,9 @@
-import React, {useState,useEffect} from 'react'
+import React from 'react'
 import '../../styles/Vocab/ProgressBar.css'
 
 
 export default function VocabQuizProgressBar(props) {
-    const [index, setIndex] = useState(0)
+
     const curProgress = (props.index / props.totalQuestions * 100 ).toString() +'%'
     // const curProgress = (props.index / props.totalQuestions * 100).toString() +'%'
     // useEffect( () => {
@@ -12,11 +12,7 @@ export default function VocabQuizProgressBar(props) {
     //     }
     // },[props.index])
 
-    const ProgressContainer = {
-        width: {curProgress}+'%',
-        height: '20px',
-        backgroundColor: '#222'
-    }
+    
     return (
         
         <div className='progress-container'>

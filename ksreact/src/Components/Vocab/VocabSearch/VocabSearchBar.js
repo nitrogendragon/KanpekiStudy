@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+
 import VocabSearchResultItem from './VocabSearchResultItem'
 import VocabFilterDropDown from './VocabFilterDropDown'
 import '../../../styles/Vocab/VocabSearch/VocabSearch.css'
@@ -66,6 +67,7 @@ export default function VocabSearchBar(props) {
                         />
                         ) 
                 }
+                return ("")
             }
         )
         setVocabSearchResults( results)
