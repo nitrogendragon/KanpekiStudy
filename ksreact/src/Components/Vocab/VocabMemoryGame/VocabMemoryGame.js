@@ -1,5 +1,6 @@
 import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 import Timer from '../../General/Timer'
+import VocabMemoryGameGuide from './VocabMemoryGameGuide'
 import React, {useState, useEffect} from 'react'
 /*
 reference for setting up timer with hooks
@@ -14,12 +15,28 @@ export default function VocabMemoryGame() {
     const [displayPractice, setDisplayPractice] = useState(false);
     const [displayTest, setDisplayTest] = useState(false);
 
+    
+    function renderPractice(){
+        if(displayPractice){
+            return(
+                <div>
+                    <Timer timeRemaining = {timeLeft} />
+                    <button onClick = {toggle}>Start CountDown</button>
+                    <button onClick = {reset}>Reset CountDown</button>
+                    <p>TimerActive is currently {timerActive.toString()}</p>   
+                </div>
+            )
+        }
+    }
     function toggle(){
         if(timeLeft!= 0){
         setTimerActive(!timerActive)
         }
     }
 
+    function startPractice(){
+
+    }
 
     function reset(){
         setTimeLeft(totalTime)
@@ -45,15 +62,16 @@ export default function VocabMemoryGame() {
         return () => clearInterval(interval)
     }, [timerActive, timeLeft])
 
- 
+    
+    
+    
+    
+    
     return (
-        
         <div>
-            <Timer timeRemaining = {timeLeft} />
-            <button onClick = {toggle}>Start CountDown</button>
-            <button onClick = {reset}>Reset CountDown</button>
-            <p>TimerActive is currently {timerActive.toString()}</p>
-            
+            <VocabMemoryGameGuide start = {startPractice}/>
+            {renderPractice()}
+
         </div>
         
     )
