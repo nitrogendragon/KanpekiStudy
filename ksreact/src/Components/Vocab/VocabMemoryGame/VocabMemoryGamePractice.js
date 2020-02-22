@@ -1,5 +1,6 @@
 import React from 'react'
 import Timer from '../../General/Timer'
+import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 import VocabMemoryGamePracticeCards from './VocabMemoryGamePracticeCards'
 export default function VocabMemoryGamePractice(props) {
 
@@ -7,10 +8,9 @@ export default function VocabMemoryGamePractice(props) {
     {
         return (
             <div>
-                <Timer timeRemaining = {props.timeLeft} />
+                <Timer className= "count-down"timeRemaining = {props.timeLeft} />
                 {/* <button onClick = {props.toggle}>Start CountDown</button> */}
-                <button onClick = {props.reset}>Reset CountDown</button>
-                <p>TimerActive is currently {props.timerActive.toString()}</p>   
+                <button className = "route-button" onClick = {props.reset}>Reset CountDown</button>
                 <VocabMemoryGamePracticeCards 
                     genNumbers = {true}
                     startCountDown = {props.toggle}
@@ -25,7 +25,7 @@ export default function VocabMemoryGamePractice(props) {
                     wordPairsData = {props.wordPairsData}
                     wordPairsLength = {props.wordPairsLength}
                     />
-                <button onClick = {props.toGuide}>Return to Guide</button>
+                <button className = "route-button" onClick = {props.toGuide}>Return to Guide</button>
 
             </div>
         )

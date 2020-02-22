@@ -16,12 +16,19 @@
     display:grid;
     grid-template-columns: minmax(auto,20%) repeat(4, minmax(auto, 20%));
     align-items: center;
-    width:100%;
+    width:99%;
     min-height:80px;
     background-color:#b6d4f8;
-    
     box-shadow: 0px 0px 4px 2px ;
+    position:fixed;
+    top:2px;
+    margin-left:1px;
+    
   }
+
+.nav-margin-bottom{
+    margin-bottom:100px;
+}
 .nav-button:hover,
 .nav-button:focus{
     color:white;

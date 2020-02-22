@@ -1,0 +1,15 @@
+.count-down{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: silver;
+    
+}
+
+.count-down p{
+    width: 120px;
+    text-align:start;
+}

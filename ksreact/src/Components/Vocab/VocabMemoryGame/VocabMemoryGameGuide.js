@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 export default function VocabMemoryGameGuide(props) {
     
     
@@ -7,7 +7,7 @@ export default function VocabMemoryGameGuide(props) {
     {
         return (
             <div>
-                <button onClick={props.start}>Start the Game</button>
+                <button className = "route-button" onClick={props.start}>Start the Game</button>
                 
                 <p>Welcome to the vocabulary memory game mode! If you have already played and know
                     what you are doing feel free to go ahead and hit the start button. If not, worry not, you
@@ -35,7 +35,7 @@ export default function VocabMemoryGameGuide(props) {
                     multiplier will disappear. You can view your current multiplier next to your score.
                     Be careful though because time is ticking fast.
                 </p>
-                <button onClick={props.start}>Start the Game</button>
+                <button className = "route-button" onClick={props.start}>Start the Game</button>
             </div>
         )
     }

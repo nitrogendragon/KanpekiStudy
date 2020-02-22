@@ -1,6 +1,6 @@
 .practice-card{
     display: grid;
-    grid-template-columns: repeat(3, 25%);
+    grid-template-columns: repeat(3, 15%);
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -13,4 +13,37 @@
     align-items: center;
     font-size: 20px;
     height: 100%;
+}
+
+.count-down{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: silver;
+}
+
+.route-button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    
+    border-radius:5px;
+    margin-left: 45%;
+    margin-top:20px;
+    margin-bottom: 20px;
+    background: linear-gradient(0deg, rgb(228, 185, 217) 05%, rgb(93, 220, 223) 100%);
+    transition: height 600ms,box-shadow 600ms, color 300ms;
+}
+
+.route-button:hover,
+.route-button:focus {
+    color: black;
+    box-shadow: 0px 0px 10px 10px rgba(34,193,195,1);
+    
 }
