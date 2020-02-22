@@ -16,9 +16,13 @@ export default function VocabMemoryGamePractice(props) {
                 <button onClick = {props.reset}>Reset CountDown</button>
                 <p>TimerActive is currently {props.timerActive.toString()}</p>   
                 <VocabMemoryGamePracticeCards 
+                    genNumbers = {true}
                     englishArray = {props.englishArray}
                     japaneseArray = {props.japaneseArray}
                     idArray = {props.idArray}
+                    setEnglishArray = {props.setEnglishArray}
+                    setJapaneseArray = {props.setJapaneseArray}
+                    setIdArray = {props.setIdArray}
                     wordPairsData = {props.wordPairsData}
                     wordPairsLength = {props.wordPairsLength}
                     />

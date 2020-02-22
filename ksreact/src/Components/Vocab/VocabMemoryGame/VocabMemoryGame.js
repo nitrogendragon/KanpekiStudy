@@ -99,7 +99,10 @@ export default function VocabMemoryGame() {
                 timerActive = {timerActive}
                 englishArray = {englishArray}
                 japaneseArray = {japaneseArray}
+                setEnglishArray = {setEnglishArray}
+                setJapaneseArray = {setJapaneseArray}
                 idArray = {idArray}
+                setIdArray = {setIdArray}
                 wordPairsData = {wordPairsData}
                 wordPairsLength = {wordPairsLength}
             />

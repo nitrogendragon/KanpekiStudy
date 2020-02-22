@@ -3,31 +3,31 @@
         "english": "I",
         "japanese": "私",
         "romaji": "watashi",
-        "id": 1
+        "id": 0
     },
     {
         "english": "you",
         "japanese": "君",
         "romaji": "kimi",
-        "id": 2
+        "id": 1
     },
     {
         "english": "chicken",
         "japanese": "鶏",
         "romaji": "niwatori",
-        "id": 3
+        "id": 2
     },
     {
         "english": "chicken (meat)",
         "japanese": "鶏肉",
         "romaji": "tori niku",
-        "id": 4
+        "id": 3
     },
     {
         "english": "pizza",
         "japanese": "ピザ",
         "romaji": "piza",
-        "id": 5
+        "id": 4
     },
     {
         "english": "I (boyish)",
@@ -177,11 +177,6 @@
         "japanese": "郵便局",
         "romaji": "yuubinkyoku",
         "id": 30
-    },
-    {
-        "english": "",
-        "japanese": "",
-        "romaji": "",
-        "id": 31
     }
+    
 ]
