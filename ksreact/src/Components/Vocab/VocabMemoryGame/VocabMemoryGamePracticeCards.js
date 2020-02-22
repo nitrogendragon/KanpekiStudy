@@ -12,12 +12,12 @@ export default function VocabMemoryGamePracticeCards(props) {
         while(i < 10){
             let repeated = false
             let r = Math.floor(rng() * props.wordPairsLength)
-            // for(i2 = 0; i2 < i; i2++){
-            //     if( props.idArray[i2] && r == props.idArray[i2]){
-            //         repeated = true
-            //     }
-            //     else{}
-            // }
+            for(i2 = 0; i2 < i; i2++){
+                if( props.idArray[i2] && r == props.idArray[i2]){
+                    repeated = true
+                }
+                else{}
+            }
             if(repeated)
             {
                 
