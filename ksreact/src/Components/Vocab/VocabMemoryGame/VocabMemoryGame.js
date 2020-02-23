@@ -46,7 +46,7 @@ export default function VocabMemoryGame() {
     }
 
     function stopTest(){
-
+        //Do something awesome here
     }
 
     function returnToGuide(){
@@ -59,14 +59,18 @@ export default function VocabMemoryGame() {
     function returnToPractice(){
         setDisplayGame(false)
         setDisplayGuide(false)
-        setDisplayPractice(true)
+        //give time for useEffect to run
+        setTimeout(() => {
+            setDisplayPractice(true)
+        }, 500);
+        
     }
 
     function reset(){
         setTimeLeft(totalTime)
         setTimerActive(false)
     }
-
+    
     
     useEffect(() => {
         let interval = null
@@ -95,8 +99,15 @@ export default function VocabMemoryGame() {
     },[timerActive, timeLeft, totalTime, displayPractice])
 
     useEffect( () =>{
-        console.log("the english array is now" + englishArray)
-    }, [englishArray, japaneseArray, romajiArray])
+        if(displayGame === false){
+            setEnglishArray( englishArray.filter(item => item == null))
+            console.log("we have attempted to fix the EnglishArray. but this is what it is")
+            console.log(englishArray)
+            setJapaneseArray(japaneseArray.filter(item => item == null))
+            setRomajiArray(romajiArray.filter(item => item == null))
+            setIdArray(idArray.filter(item => item == null))
+        }
+    }, [displayGame])
     
     return (
         <div>

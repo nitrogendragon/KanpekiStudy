@@ -15,6 +15,7 @@ export default function VocabMemoryGamePracticeCards(props) {
         
         i = 0;
         i2 =0;
+        
         while(i < totalCards){
             let repeated = false
             let r = Math.floor(rng() * props.wordPairsLength)
@@ -38,7 +39,6 @@ export default function VocabMemoryGamePracticeCards(props) {
 
     if(shouldGenNumbers){
         setShouldGenNumbers(false)
-        
         pickAndSetPairs()
         cards()
         props.startCountDown()

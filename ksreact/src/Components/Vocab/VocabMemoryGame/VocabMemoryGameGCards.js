@@ -4,7 +4,7 @@ export default function VocabMemoryGameGCards(props) {
     const id = props.index
     if(props.text != null){
         return (
-            <div className="game-card">
+            <div id = {id} className="game-card">
                 
                     <p>{props.text}</p> 
 

@@ -27,6 +27,10 @@ export default function VocabMemoryGameGame(props) {
     useEffect(() =>{
         if(props.active === true)
         {
+        setJapaneseCardsArray(japaneseCardsArray.filter(item => item == null))
+        console.log("this is the filtered JapaneseCardsArray")
+        console.log(japaneseCardsArray)
+        setEnglishCardsArray(englishCardsArray.filter(item => item == null))
         setGenCards(true)
         }
     },[props.active])
@@ -34,9 +38,7 @@ export default function VocabMemoryGameGame(props) {
     {
         setGenCards(false)
         createCards()
-        console.log(props.englishArray)
-        console.log(englishCardsArray)
-        console.log(japaneseCardsArray)
+        props.toggleTimerActive()
     }
     if(props.active){
         
@@ -46,7 +48,7 @@ export default function VocabMemoryGameGame(props) {
             <button onClick={props.toPractice}>New Game</button>
             <button onClick={props.toGuide}>Exit Game</button>
             <div className="game-grid">
-                {[...englishCardsArray]}
+                {englishCardsArray}
                 {[...japaneseCardsArray]}
             </div>
         </div>
