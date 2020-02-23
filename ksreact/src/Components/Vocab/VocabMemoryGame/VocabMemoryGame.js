@@ -1,6 +1,7 @@
 import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 import VocabMemoryGameGuide from './VocabMemoryGameGuide'
 import VocabMemoryGamePractice from './VocabMemoryGamePractice'
+import VocabMemoryGameGame from './VocabMemoryGameGame'
 import React, {useState, useEffect} from 'react'
 /*
 reference for setting up timer with hooks
@@ -14,7 +15,7 @@ export default function VocabMemoryGame() {
     const [displayGuide, setDisplayGuide] = useState(true);
     const [displayPractice, setDisplayPractice] = useState(false);
     const [displayGame, setDisplayGame] = useState(false);
-
+    const [totalCards, setTotalCards] = useState(10)
     const [englishArray, setEnglishArray] = useState([])
     const [japaneseArray, setJapaneseArray] = useState([])
     const [romajiArray, setRomajiArray] = useState([])
@@ -36,6 +37,7 @@ export default function VocabMemoryGame() {
         setDisplayGuide(false)
         setDisplayPractice(true)
     }
+
     function startTest(){
         setTotalTime(60)
         reset()
@@ -52,6 +54,12 @@ export default function VocabMemoryGame() {
         setDisplayPractice(false)
         setDisplayGuide(true)
         
+    }
+
+    function returnToPractice(){
+        setDisplayGame(false)
+        setDisplayGuide(false)
+        setDisplayPractice(true)
     }
 
     function reset(){
@@ -86,12 +94,16 @@ export default function VocabMemoryGame() {
         return () => clearInterval(interval);
     },[timerActive, timeLeft, totalTime, displayPractice])
 
+    useEffect( () =>{
+        console.log("the english array is now" + englishArray)
+    }, [englishArray, japaneseArray, romajiArray])
     
     return (
         <div>
             <VocabMemoryGameGuide start = {startPractice} active = {displayGuide}/>
             <VocabMemoryGamePractice 
                 toGuide = {returnToGuide} 
+                toGame = {startTest}
                 active = {displayPractice}
                 timeLeft = {timeLeft}
                 toggle = {toggle}
@@ -107,7 +119,24 @@ export default function VocabMemoryGame() {
                 setIdArray = {setIdArray}
                 wordPairsData = {wordPairsData}
                 wordPairsLength = {wordPairsLength}
+                totalCards = {totalCards}
             />
+            { englishArray[0] === null ? <></> :
+            <VocabMemoryGameGame 
+                toPractice = {returnToPractice} //for restarting the game
+                toGuide = {returnToGuide} //for restarting the game
+                active = {displayGame}
+                timeLeft = {timeLeft}
+                toggleTimerActive = {toggle}
+                timerReset = {reset}
+                timerActive = {timerActive}
+                englishArray = {englishArray}
+                romajiArray = {romajiArray}
+                japaneseArray = {japaneseArray}
+                idArray = {idArray}
+                totalCards = {totalCards}
+            />
+            }
 
         </div>
         
