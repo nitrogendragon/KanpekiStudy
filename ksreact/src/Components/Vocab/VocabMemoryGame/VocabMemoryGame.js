@@ -2,6 +2,7 @@ import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 import VocabMemoryGameGuide from './VocabMemoryGameGuide'
 import VocabMemoryGamePractice from './VocabMemoryGamePractice'
 import VocabMemoryGameGame from './VocabMemoryGameGame'
+import Loader from '../../Loaders/Loader'
 import React, {useState, useEffect} from 'react'
 /*
 reference for setting up timer with hooks
@@ -20,6 +21,7 @@ export default function VocabMemoryGame() {
     const [japaneseArray, setJapaneseArray] = useState([])
     const [romajiArray, setRomajiArray] = useState([])
     const [idArray, setIdArray] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const wordPairsData = require('../../../Data/VocabWordPairsData.json')
     const wordPairsLength = wordPairsData.length
 
@@ -61,8 +63,9 @@ export default function VocabMemoryGame() {
         setDisplayGuide(false)
         //give time for useEffect to run
         setTimeout(() => {
-            setDisplayPractice(true)
+            startPractice()
         }, 500);
+        
         
     }
 
@@ -111,6 +114,7 @@ export default function VocabMemoryGame() {
     
     return (
         <div>
+            {isLoading ? <Loader /> : <></>}
             <VocabMemoryGameGuide start = {startPractice} active = {displayGuide}/>
             <VocabMemoryGamePractice 
                 toGuide = {returnToGuide} 
