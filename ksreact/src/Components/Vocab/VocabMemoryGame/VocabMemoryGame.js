@@ -69,8 +69,6 @@ export default function VocabMemoryGame() {
             startPractice()
             
         }, 500);
-        
-        
     }
 
     function reset(){
