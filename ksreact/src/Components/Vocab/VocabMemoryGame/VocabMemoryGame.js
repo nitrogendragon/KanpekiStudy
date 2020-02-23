@@ -24,7 +24,8 @@ export default function VocabMemoryGame() {
     const [isLoading, setIsLoading] = useState(false)
     const wordPairsData = require('../../../Data/VocabWordPairsData.json')
     const wordPairsLength = wordPairsData.length
-
+    
+    
     
     
     function toggle(){
@@ -61,9 +62,12 @@ export default function VocabMemoryGame() {
     function returnToPractice(){
         setDisplayGame(false)
         setDisplayGuide(false)
+        setIsLoading(true)
         //give time for useEffect to run
         setTimeout(() => {
+            setIsLoading(false)
             startPractice()
+            
         }, 500);
         
         
@@ -74,8 +78,9 @@ export default function VocabMemoryGame() {
         setTimerActive(false)
     }
     
-    
+
     useEffect(() => {
+        
         let interval = null
         if(timerActive){
             interval = setInterval( () => {
@@ -112,9 +117,10 @@ export default function VocabMemoryGame() {
         }
     }, [displayGame])
     
+
     return (
         <div>
-            {isLoading ? <Loader /> : <></>}
+            <Loader show = {isLoading}/>
             <VocabMemoryGameGuide start = {startPractice} active = {displayGuide}/>
             <VocabMemoryGamePractice 
                 toGuide = {returnToGuide} 
