@@ -53,8 +53,9 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    width:minmax(auto, 40px);
-    height: minmax(auto, 40px);
+    min-width:40px;
+    min-height: 100px;
+    font-size: 1.5em;
     border-radius: 4px;
     box-shadow: 0px 0px 0px 2px;
     margin: 6px;
