@@ -69,7 +69,10 @@ export default function VocabMemoryGameGame(props) {
     }
 
     
-
+    function resetArrays(){
+        setEnglishCardsArray([])
+        setJapaneseCardsArray([])
+    }
 
     //Handles clicking cards and checking for correct matches, repeat clicks, and wrong matches
     function handleSetSelectedCards(id, text){
@@ -143,6 +146,15 @@ export default function VocabMemoryGameGame(props) {
         setJapaneseCardsArray(japaneseCardsArray.filter(item => item == null))
         setEnglishCardsArray(englishCardsArray.filter(item => item == null))
         setGenCards(true)
+        }
+        else{
+            setScore(0)
+            setMultiplier(1)
+            setSelectedCardId1("")
+            setSelectedCardId2("")
+            setSelectedCardText1("")
+            setSelectedCardText2("")
+            resetArrays()
         }
     },[props.active])
 
