@@ -6,6 +6,7 @@ import uuid4 from 'uuid4'
 export default function VocabMemoryGameGame(props) {
     const [englishCardsArray, setEnglishCardsArray] = useState([])
     const [japaneseCardsArray, setJapaneseCardsArray] = useState([])
+    const [testArray, setTestArray] = useState([])
     const [selectedCardId1, setSelectedCardId1] = useState("")
     const [selectedCardId2, setSelectedCardId2] = useState("")
     const [selectedCardText1, setSelectedCardText1] = useState("")
@@ -22,27 +23,28 @@ export default function VocabMemoryGameGame(props) {
     function createRandomArray(size1, size2 ){
         let r 
         let arr = []
-        let inserted = false
-        for(let i ; i < size1; i++){
-            inserted = false
-            while(!inserted)
+        let i = 0
+        while(i< size1)
+        {
             r = Math.floor(rng() * size2)
-            if(arr.includes(r)){
+            if(arr.includes(r))
+            {
                 //do nothing
-                continue
             }
             else{
-                arr[i] = r
-                inserted = true
-            }
+            arr[i] = r
+            console.log(arr[i])
+            i++
+            }      
         }
-        return arr
+            return arr
     }
 
     function createCards() {
         //setup empty
         let i = 0
-
+        let randIndexArray = createRandomArray(props.totalCards, props.totalCards)
+        let r
         //insert game cards in random order/random indexes
         for(i = 0; i < props.totalCards; i++){ 
             setJapaneseCardsArray([...japaneseCardsArray,japaneseCardsArray[i] = <VocabMemoryGameGCards 
@@ -148,7 +150,7 @@ export default function VocabMemoryGameGame(props) {
         }
     },[genCards])
 
-
+    
     if(props.active){  
         return (
             <div>
@@ -158,6 +160,7 @@ export default function VocabMemoryGameGame(props) {
                 <div className="game-grid">
                     {englishCardsArray}
                     {japaneseCardsArray}
+                    {testArray}
                 </div>
                 <p> the value of selectedCardId1 is: {selectedCardId1}</p>
                 <p> the value of selectedCardId2 is: {selectedCardId2}</p>

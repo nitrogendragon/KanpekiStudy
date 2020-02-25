@@ -107,8 +107,6 @@ export default function VocabMemoryGame() {
     useEffect( () =>{
         if(displayGame === false){
             setEnglishArray( englishArray.filter(item => item == null))
-            console.log("we have attempted to fix the EnglishArray. but this is what it is")
-            console.log(englishArray)
             setJapaneseArray(japaneseArray.filter(item => item == null))
             setRomajiArray(romajiArray.filter(item => item == null))
             setIdArray(idArray.filter(item => item == null))
