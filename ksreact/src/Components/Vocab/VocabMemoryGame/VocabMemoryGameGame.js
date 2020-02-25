@@ -6,18 +6,19 @@ import uuid4 from 'uuid4'
 export default function VocabMemoryGameGame(props) {
     const [englishCardsArray, setEnglishCardsArray] = useState([])
     const [japaneseCardsArray, setJapaneseCardsArray] = useState([])
-    const [testArray, setTestArray] = useState([])
     const [selectedCardId1, setSelectedCardId1] = useState("")
     const [selectedCardId2, setSelectedCardId2] = useState("")
     const [selectedCardText1, setSelectedCardText1] = useState("")
     const [selectedCardText2, setSelectedCardText2] = useState("")
-    const [genCards, setGenCards] = useState(true)
+    const [genCards, setGenCards] = useState(false)
     const [score, setScore] = useState(0)
     const [multiplier, setMultiplier] = useState(1)
     let cardSelected = false
     let firstText = ""
     let seedrandom = require('seedrandom')
     let rng = seedrandom('added entropy.', {entropy: true})
+ 
+
     //creates array of size (size1) with values (0 to size2-1)
     //genericly written but made largely for my createCards function below to randomize order of gameCards
     function createRandomArray(size1, size2 ){
@@ -40,24 +41,27 @@ export default function VocabMemoryGameGame(props) {
             return arr
     }
 
-    function createCards() {
+    function createAndSetCardsRandomly() {
         //setup empty
         let i = 0
-        let randIndexArray = createRandomArray(props.totalCards, props.totalCards)
+        const randomIndexArray = createRandomArray(props.totalCards, props.japaneseArray.length) 
+        const randomIndexArray2 = createRandomArray(props.totalCards, props.japaneseArray.length) 
         let r
         //insert game cards in random order/random indexes
         for(i = 0; i < props.totalCards; i++){ 
+            r = randomIndexArray[i]
             setJapaneseCardsArray([...japaneseCardsArray,japaneseCardsArray[i] = <VocabMemoryGameGCards 
                 key = {uuid4()}
-                text = {props.japaneseArray[i]}
-                index = {props.idArray[i]}
+                text = {props.japaneseArray[r]}
+                index = {props.idArray[r]}
                 handleSetSelectedCards = {handleSetSelectedCards}
             />]
             )
+            r = randomIndexArray2[i]
             setEnglishCardsArray([...englishCardsArray,englishCardsArray[i] = <VocabMemoryGameGCards 
                 key = {uuid4()}
-                text = {props.englishArray[i]}
-                index = {props.idArray[i]}
+                text = {props.englishArray[r]}
+                index = {props.idArray[r]}
                 handleSetSelectedCards = {handleSetSelectedCards}
             />]
             )
@@ -138,6 +142,7 @@ export default function VocabMemoryGameGame(props) {
         {
         setJapaneseCardsArray(japaneseCardsArray.filter(item => item == null))
         setEnglishCardsArray(englishCardsArray.filter(item => item == null))
+        setGenCards(true)
         }
     },[props.active])
 
@@ -145,12 +150,12 @@ export default function VocabMemoryGameGame(props) {
     useEffect(() =>{
         if(genCards){
             setGenCards(false)
-            createCards()
+            createAndSetCardsRandomly()
             props.toggleTimerActive()
         }
     },[genCards])
 
-    
+
     if(props.active){  
         return (
             <div>
@@ -160,7 +165,6 @@ export default function VocabMemoryGameGame(props) {
                 <div className="game-grid">
                     {englishCardsArray}
                     {japaneseCardsArray}
-                    {testArray}
                 </div>
                 <p> the value of selectedCardId1 is: {selectedCardId1}</p>
                 <p> the value of selectedCardId2 is: {selectedCardId2}</p>
