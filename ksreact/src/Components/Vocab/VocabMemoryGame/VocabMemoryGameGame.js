@@ -15,34 +15,63 @@ export default function VocabMemoryGameGame(props) {
     const [multiplier, setMultiplier] = useState(1)
     let cardSelected = false
     let firstText = ""
-
+    let seedrandom = require('seedrandom')
+    let rng = seedrandom('added entropy.', {entropy: true})
+    //creates array of size (size1) with values (0 to size2-1)
+    //genericly written but made largely for my createCards function below to randomize order of gameCards
+    function createRandomArray(size1, size2 ){
+        let r 
+        let arr = []
+        let inserted = false
+        for(let i ; i < size1; i++){
+            inserted = false
+            while(!inserted)
+            r = Math.floor(rng() * size2)
+            if(arr.includes(r)){
+                //do nothing
+                continue
+            }
+            else{
+                arr[i] = r
+                inserted = true
+            }
+        }
+        return arr
+    }
 
     function createCards() {
-        for(let i = 0; i < props.totalCards; i++){
-                setJapaneseCardsArray([...japaneseCardsArray,japaneseCardsArray[i] = <VocabMemoryGameGCards 
-                    key = {uuid4()}
-                    text = {props.japaneseArray[i]}
-                    index = {props.idArray[i]}
-                    handleSetSelectedCards = {handleSetSelectedCards}
-                />]
-                )
-                setEnglishCardsArray([...englishCardsArray,englishCardsArray[i] = <VocabMemoryGameGCards 
-                    key = {uuid4()}
-                    text = {props.englishArray[i]}
-                    index = {props.idArray[i]}
-                    handleSetSelectedCards = {handleSetSelectedCards}
-                />]
-                )
+        //setup empty
+        let i = 0
+
+        //insert game cards in random order/random indexes
+        for(i = 0; i < props.totalCards; i++){ 
+            setJapaneseCardsArray([...japaneseCardsArray,japaneseCardsArray[i] = <VocabMemoryGameGCards 
+                key = {uuid4()}
+                text = {props.japaneseArray[i]}
+                index = {props.idArray[i]}
+                handleSetSelectedCards = {handleSetSelectedCards}
+            />]
+            )
+            setEnglishCardsArray([...englishCardsArray,englishCardsArray[i] = <VocabMemoryGameGCards 
+                key = {uuid4()}
+                text = {props.englishArray[i]}
+                index = {props.idArray[i]}
+                handleSetSelectedCards = {handleSetSelectedCards}
+            />]
+            )
         }
     }
 
+    
 
+
+    //Handles clicking cards and checking for correct matches, repeat clicks, and wrong matches
     function handleSetSelectedCards(id, text){
-        console.log("the text is: " + text)
-        console.log("we pressed one of the cards")
+        // console.log("the text is: " + text)
+        // console.log("we pressed one of the cards")
         //initial set values when nothing is set
         if(!cardSelected && selectedCardId1 === "") {
-            console.log("Set first card values")
+            // console.log("Set first card values")
             setSelectedCardId1(id.toString())
             setSelectedCardText1(text.toString())
             firstText = text
@@ -50,7 +79,7 @@ export default function VocabMemoryGameGame(props) {
         }
         //checking to see if we hit the same card again
         else if(cardSelected && firstText === text){  
-            console.log("erased first card values due to repeat click")
+            // console.log("erased first card values due to repeat click")
             setSelectedCardId1("")
             setSelectedCardText1("")
             firstText = ""
@@ -68,24 +97,6 @@ export default function VocabMemoryGameGame(props) {
         }
     }
 
-
-    useEffect(() => {
-
-        console.log("the value of selectedCardId1 is:" + selectedCardId1.toString())
-        console.log("the value of selectedCardId2 is:" + selectedCardId2.toString())
-    },[selectedCardId1, selectedCardId2])
-
-
-    useEffect(()=>{
-        checkMatchFound()
-        //reset all selection values
-        setSelectedCardId1("")
-        setSelectedCardId2("")
-        setSelectedCardText1("")
-        setSelectedCardText2("")
-    }, [selectedCardId2])
-
-
     function checkMatchFound() {
         //update multiplier and score and style of appropriate cards
         if(selectedCardId1 !== ""){
@@ -98,53 +109,64 @@ export default function VocabMemoryGameGame(props) {
 
 
     function handleMatchFound(){
-        console.log("we should be updating our score")
+        // console.log("we should be updating our score")
         setScore((value) => value + 1 * multiplier)
         setMultiplier((value) => value + 1 )
     }
 
 
     function handleMatchNotFound(){
-        console.log("we should be resetting the multiplier")
+        // console.log("we should be resetting the multiplier")
         setMultiplier(() => 1)
     }
+
+
+    useEffect(()=>{
+        checkMatchFound()
+        //reset all selection values
+        setSelectedCardId1("")
+        setSelectedCardId2("")
+        setSelectedCardText1("")
+        setSelectedCardText2("")
+    }, [selectedCardId2])
 
 
     useEffect(() =>{
         if(props.active === true)
         {
         setJapaneseCardsArray(japaneseCardsArray.filter(item => item == null))
-        console.log("this is the filtered JapaneseCardsArray")
-        console.log(japaneseCardsArray)
         setEnglishCardsArray(englishCardsArray.filter(item => item == null))
-        setGenCards(true)
         }
     },[props.active])
-    if(genCards)
-    {
-        setGenCards(false)
-        createCards()
-        props.toggleTimerActive()
-    }
-    if(props.active){
-        
-    return (
-        <div>
-            <Timer className= "count-down"timeRemaining = {props.timeLeft} />
-            <button onClick={props.toPractice} className = "route-button">New Game</button>
-            <button onClick={props.toGuide} className = "route-button">Exit Game</button>
-            <div className="game-grid">
-                {englishCardsArray}
-                {japaneseCardsArray}
+
+
+    useEffect(() =>{
+        if(genCards){
+            setGenCards(false)
+            createCards()
+            props.toggleTimerActive()
+        }
+    },[genCards])
+
+
+    if(props.active){  
+        return (
+            <div>
+                <Timer className= "count-down"timeRemaining = {props.timeLeft} />
+                <button onClick={props.toPractice} className = "route-button">New Game</button>
+                <button onClick={props.toGuide} className = "route-button">Exit Game</button>
+                <div className="game-grid">
+                    {englishCardsArray}
+                    {japaneseCardsArray}
+                </div>
+                <p> the value of selectedCardId1 is: {selectedCardId1}</p>
+                <p> the value of selectedCardId2 is: {selectedCardId2}</p>
+                <p> the value of selectedCardText1 is: {selectedCardText1.toString()}</p>
+                <p> the value of selectedCardText2 is: {selectedCardText2.toString()}</p>
+                <p>Score: {score}</p>
+                <p>multiplier: {multiplier}</p>
             </div>
-            <p> the value of selectedCardId1 is: {selectedCardId1}</p>
-            <p> the value of selectedCardId2 is: {selectedCardId2}</p>
-            <p> the value of selectedCardText1 is: {selectedCardText1.toString()}</p>
-            <p> the value of selectedCardText2 is: {selectedCardText2.toString()}</p>
-            <p>Score: {score}</p>
-            <p>multiplier: {multiplier}</p>
-        </div>
-    )
+        )
     }
     else{
         return(<></>)
