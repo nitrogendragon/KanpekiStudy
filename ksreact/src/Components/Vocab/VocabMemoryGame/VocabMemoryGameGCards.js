@@ -3,6 +3,7 @@ import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 export default function VocabMemoryGameGCards(props) {
     
     function handleClick() {
+        props.handleStyle(props.text)
         props.handleSetSelectedCards(props.index, props.text)
     }
     if(props.text != null){
@@ -10,7 +11,9 @@ export default function VocabMemoryGameGCards(props) {
                 <button 
                     id = {props.index} 
                     className="game-card" 
-                    onClick = {handleClick}>
+                    onClick = {handleClick}
+                    isEnglish = {props.isEnglish}
+                >
                     {props.text}
                 </button> 
         )
