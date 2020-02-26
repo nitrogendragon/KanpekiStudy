@@ -11,15 +11,15 @@ export default function VocabMemoryGameGame(props) {
     const [selectedCardId2, setSelectedCardId2] = useState("")
     const [selectedCardText1, setSelectedCardText1] = useState("")
     const [selectedCardText2, setSelectedCardText2] = useState("")
-    const [ignore, setIgnore] = useState(false)
+    const [selectedCardEvent1, setSelectedCardEvent1] = useState()
+    const [selectedCardEvent2, setSelectedCardEvent2] = useState()
     const [genCards, setGenCards] = useState(false)
     const [score, setScore] = useState(0)
     const [multiplier, setMultiplier] = useState(1)
-    const [cardSelected, setCardSelected] = useState(false)
     const [shouldUpdateSelection, setShouldUpdateSelection] = useState(false)
-    let firstText = ""
     const [checkText, setCheckText] = useState("")
     const [id, setId] = useState("")
+    const [eventTarget, setEventTarget] = useState()
     let temp = []
     let seedrandom = require('seedrandom')
     let rng = seedrandom('added entropy.', {entropy: true})
@@ -47,10 +47,7 @@ export default function VocabMemoryGameGame(props) {
     }
 
 
-    function handleCardStyle(text)
-    {
-        //put our game-card hover effects here
-    }
+
 
     
     function createAndSetCardsRandomly() {
@@ -66,7 +63,6 @@ export default function VocabMemoryGameGame(props) {
                 key = {uuid4()}
                 text = {props.japaneseArray[r]}
                 index = {props.idArray[r]}
-                handleStyle = {handleCardStyle}
                 handleSetSelectedCards = {handleSetSelectedCards}
                 
             />]
@@ -76,7 +72,6 @@ export default function VocabMemoryGameGame(props) {
                 key = {uuid4()}
                 text = {props.englishArray[r]}
                 index = {props.idArray[r]}
-                handleStyle = {handleCardStyle}
                 handleSetSelectedCards = {handleSetSelectedCards}
                 
             />]
@@ -92,7 +87,8 @@ export default function VocabMemoryGameGame(props) {
 
 
     //Handles clicking cards and checking for correct matches, repeat clicks, and wrong matches
-    function handleSetSelectedCards(id, text){
+    function handleSetSelectedCards(id, text,target){
+        setEventTarget(target)
         setId(id.toString())
         if(text === checkText){
             setCheckText("")
@@ -131,6 +127,10 @@ export default function VocabMemoryGameGame(props) {
         if(selectedCardId2 === selectedCardId1){
             if(!usedValues.includes(selectedCardText1) && !usedValues.includes(selectedCardText2)){
                 setUsedValues([...usedValues,selectedCardText1.toString(),selectedCardText2.toString()])
+                if(selectedCardEvent1 !== undefined && selectedCardEvent2 !== undefined){
+                    selectedCardEvent1.className = "correct-answer"
+                    selectedCardEvent2.className = "correct-answer"
+                    }
             }
             else if(!usedValues.includes(selectedCardText1)){
                 setUsedValues([...usedValues, selectedCardText1.toString()])
@@ -150,23 +150,22 @@ export default function VocabMemoryGameGame(props) {
 
     useEffect(( ) =>{
         if(shouldUpdateSelection){
+            console.log(eventTarget)
             setShouldUpdateSelection(false)
-            console.log(checkText)
             usedValues.filter((val)=> val !== "")
-            if(checkText === "" || usedValues.includes(checkText))
-            {
-                console.log("found it")
-                
-            }    
+            if(checkText === "" || usedValues.includes(checkText)){}  
 
             else if(selectedCardId1 === "") {
                 console.log("selected first card")
+                setSelectedCardEvent1(eventTarget)
+                console.log(selectedCardEvent1)
                 setSelectedCardId1(id.toString())
                 setSelectedCardText1(checkText.toString())
             }
             //checking to see if we hit the same card again
             else if(selectedCardText1 === checkText){  
                 console.log("We hit the same card")
+                setSelectedCardEvent1({})
                 setSelectedCardId1("")
                 setSelectedCardText1("")
 
@@ -175,6 +174,7 @@ export default function VocabMemoryGameGame(props) {
             else if(selectedCardId2 === "")
             { 
                 console.log("should be setting id2")
+                setSelectedCardEvent2(eventTarget)
                 setSelectedCardId2(id.toString())
                 setSelectedCardText2(checkText.toString())
                 //will check for match in useEffect that runs when cardId2 changes
@@ -183,6 +183,7 @@ export default function VocabMemoryGameGame(props) {
         }
             
     },[shouldUpdateSelection])
+
 
     useEffect(() =>{
         if(props.active === true)
