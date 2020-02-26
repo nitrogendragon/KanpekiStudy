@@ -15,7 +15,8 @@ export default function VocabMemoryGameGame(props) {
     const [genCards, setGenCards] = useState(false)
     const [score, setScore] = useState(0)
     const [multiplier, setMultiplier] = useState(1)
-    let cardSelected = false
+    const [cardSelected, setCardSelected] = useState(false)
+    const [shouldUpdateSelection, setShouldUpdateSelection] = useState(false)
     let firstText = ""
     const [checkText, setCheckText] = useState("")
     const [id, setId] = useState("")
@@ -93,7 +94,13 @@ export default function VocabMemoryGameGame(props) {
     //Handles clicking cards and checking for correct matches, repeat clicks, and wrong matches
     function handleSetSelectedCards(id, text){
         setId(id.toString())
-        setCheckText(text.toString())
+        if(text === checkText){
+            setCheckText("")
+        }
+        else{
+        setCheckText(text)
+        }
+        setShouldUpdateSelection(true)
         //everything is handled in useEffect 
     }
 
@@ -121,7 +128,7 @@ export default function VocabMemoryGameGame(props) {
 
     useEffect(()=>{
         checkMatchFound()
-        if(selectedCardId2 !== ""){
+        if(selectedCardId2 === selectedCardId1){
             if(!usedValues.includes(selectedCardText1) && !usedValues.includes(selectedCardText2)){
                 setUsedValues([...usedValues,selectedCardText1.toString(),selectedCardText2.toString()])
             }
@@ -142,43 +149,40 @@ export default function VocabMemoryGameGame(props) {
 
 
     useEffect(( ) =>{
-        console.log(usedValues)
-        if(usedValues.includes(checkText))
-        {
-            
-            console.log("found it")
-            setIgnore(true)
-        }    
-            else if(ignore){setIgnore(false)}
-            //initial set values when nothing is set
-            else if(!cardSelected && selectedCardId1 === "") {
+        if(shouldUpdateSelection){
+            setShouldUpdateSelection(false)
+            console.log(checkText)
+            usedValues.filter((val)=> val !== "")
+            if(checkText === "" || usedValues.includes(checkText))
+            {
+                console.log("found it")
+                
+            }    
+
+            else if(selectedCardId1 === "") {
+                console.log("selected first card")
                 setSelectedCardId1(id.toString())
                 setSelectedCardText1(checkText.toString())
-                firstText = checkText
-                cardSelected = true
             }
             //checking to see if we hit the same card again
-            else if(cardSelected && firstText === checkText){  
+            else if(selectedCardText1 === checkText){  
+                console.log("We hit the same card")
                 setSelectedCardId1("")
                 setSelectedCardText1("")
-                firstText = ""
-                cardSelected = false
+
             }
             //make sure idCard2 is null and then set values
             else if(selectedCardId2 === "")
-            {
-                
+            { 
+                console.log("should be setting id2")
                 setSelectedCardId2(id.toString())
                 setSelectedCardText2(checkText.toString())
-                firstText = ""
-                cardSelected = false
-                //will check for match now in useEffect below
+                //will check for match in useEffect that runs when cardId2 changes
                 
             }
+        }
             
-        
-       
-    },[usedValues, checkText])
+    },[shouldUpdateSelection])
 
     useEffect(() =>{
         if(props.active === true)
