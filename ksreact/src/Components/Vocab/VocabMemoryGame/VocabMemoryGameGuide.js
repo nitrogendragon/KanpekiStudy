@@ -7,8 +7,6 @@ export default function VocabMemoryGameGuide(props) {
     {
         return (
             <div>
-                <button className = "route-button" onClick={props.start}>Start the Game</button>
-                
                 <p>Welcome to the vocabulary memory game mode! If you have already played and know
                     what you are doing feel free to go ahead and hit the start button. If not, worry not, you
                     will be going in no time.
@@ -35,7 +33,9 @@ export default function VocabMemoryGameGuide(props) {
                     multiplier will disappear. You can view your current multiplier next to your score.
                     Be careful though because time is ticking fast.
                 </p>
+                <div className = "route-button-container">
                 <button className = "route-button" onClick={props.start}>Start the Game</button>
+                </div>
             </div>
         )
     }

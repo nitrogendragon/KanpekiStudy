@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import '../../../styles/Vocab/VocabMemoryGame/VocabMemoryGame.css'
 import VocabMemoryGameGCards from './VocabMemoryGameGCards'
 import Timer from '../../General/Timer'
+import GameResults from './GameResults'
 import uuid4 from 'uuid4'
 export default function VocabMemoryGameGame(props) {
     const [englishCardsArray, setEnglishCardsArray] = useState([])
@@ -19,8 +20,9 @@ export default function VocabMemoryGameGame(props) {
     const [shouldUpdateSelection, setShouldUpdateSelection] = useState(false)
     const [checkText, setCheckText] = useState("")
     const [id, setId] = useState("")
+    const [numberOfCorrectMatches, setNumberOfCorrectMatches] = useState(0)
+    const [timeTaken, setTimeTaken]  = useState()
     const [eventTarget, setEventTarget] = useState()
-    let temp = []
     let seedrandom = require('seedrandom')
     let rng = seedrandom('added entropy.', {entropy: true})
     
@@ -113,6 +115,7 @@ export default function VocabMemoryGameGame(props) {
 
     function handleMatchFound(){
         setScore((value) => value + 1 * multiplier)
+        setNumberOfCorrectMatches((value) => value  +1)
         setMultiplier((value) => value + 1 )
     }
 
@@ -153,7 +156,7 @@ export default function VocabMemoryGameGame(props) {
             console.log(eventTarget)
             setShouldUpdateSelection(false)
             usedValues.filter((val)=> val !== "")
-            if(checkText === "" || usedValues.includes(checkText)){}  
+            if(checkText === "" || usedValues.includes(checkText)){console.log("we aren't doing anything")}  
 
             else if(selectedCardId1 === "") {
                 console.log("selected first card")
@@ -200,10 +203,34 @@ export default function VocabMemoryGameGame(props) {
             setSelectedCardText1("")
             setSelectedCardText2("")
             resetArrays()
+            setNumberOfCorrectMatches(0)
+            props.setShowResults(false)
+            setUsedValues([])//if we dont do this the next playthrough will have issues I think
         }
+        
     },[props.active])
 
 
+    useEffect(()=>{
+        if(numberOfCorrectMatches === props.totalCards)
+        {
+            props.toggleTimerActive()//hopefully this stops the timer or something
+            setUsedValues([])
+            setTimeTaken(props.totalTime - props.timeLeft)
+            props.setShowResults(true)
+        }
+    },[numberOfCorrectMatches])
+
+
+    
+    useEffect(()=>{
+        if(props.timeLeft <= 0)
+        {
+            setTimeTaken(props.totalTime - props.timeLeft)
+        }
+    },[props.timeLeft])
+            
+        
     useEffect(() =>{
         if(genCards){
             setGenCards(false)
@@ -216,9 +243,16 @@ export default function VocabMemoryGameGame(props) {
     if(props.active){  
         return (
             <div>
+                <GameResults score = {score} timeTaken = {timeTaken} showResults = {props.showResults}
+                    toPractice = {props.toPractice} toGuide = {props.toGuide}
+                />
                 <Timer className= "count-down"timeRemaining = {props.timeLeft} />
-                <button onClick={props.toPractice} className = "route-button">New Game</button>
-                <button onClick={props.toGuide} className = "route-button">Exit Game</button>
+                <div className = "route-button-container">
+                    <button onClick={props.toPractice} className = "route-button">New Game</button>
+                </div>
+                <div className = "route-button-container">
+                    <button onClick={props.toGuide} className = "route-button">Exit Game</button>
+                </div>
                 <div className="game-grid">
                     {englishCardsArray}
                     {japaneseCardsArray}
@@ -229,6 +263,7 @@ export default function VocabMemoryGameGame(props) {
                 <p> the value of selectedCardText2 is: {selectedCardText2.toString()}</p>
                 <p>Score: {score}</p>
                 <p>multiplier: {multiplier}</p>
+                <p>You have gotten {numberOfCorrectMatches} / {props.totalCards} matches right so far </p>
             </div>
         )
     }

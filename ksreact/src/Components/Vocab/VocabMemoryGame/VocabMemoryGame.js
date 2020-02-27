@@ -10,11 +10,12 @@ https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
 */
 export default function VocabMemoryGame() {
-    const [timeLeft, setTimeLeft] = useState(10)
+    const [timeLeft, setTimeLeft] = useState(60)
     const [totalTime, setTotalTime] = useState(60)
     const [timerActive, setTimerActive ] = useState(false)
     const [displayGuide, setDisplayGuide] = useState(true);
     const [displayPractice, setDisplayPractice] = useState(false);
+    const [displayResults, setDisplayResults] = useState(false);
     const [displayGame, setDisplayGame] = useState(false);
     const [totalCards, setTotalCards] = useState(10)
     const [englishArray, setEnglishArray] = useState([])
@@ -49,7 +50,7 @@ export default function VocabMemoryGame() {
     }
 
     function stopTest(){
-        //Do something awesome here
+        setDisplayResults(true)
     }
 
     function returnToGuide(){
@@ -96,8 +97,7 @@ export default function VocabMemoryGame() {
             {
                 startTest()
             }
-            else
-            {
+            else if(displayGame){
                 stopTest()
             }
         }
@@ -152,6 +152,9 @@ export default function VocabMemoryGame() {
                 japaneseArray = {japaneseArray}
                 idArray = {idArray}
                 totalCards = {totalCards}
+                showResults = {displayResults}
+                setShowResults = {setDisplayResults}
+                totalTime = {totalTime}
             />
             }
 

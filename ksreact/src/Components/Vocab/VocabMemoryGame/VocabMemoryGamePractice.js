@@ -10,7 +10,9 @@ export default function VocabMemoryGamePractice(props) {
             <div>
                 <Timer className= "count-down"timeRemaining = {props.timeLeft} />
                 {/* <button onClick = {props.toggle}>Start CountDown</button> */}
-                <button className = "route-button" onClick = {props.toGame}>Start Now</button>
+                <div className = "route-button-container">
+                    <button className = "route-button" onClick = {props.toGame}>Start Now</button>
+                </div>
                 <VocabMemoryGamePracticeCards 
                     genNumbers = {true}
                     startCountDown = {props.toggle}
@@ -26,8 +28,9 @@ export default function VocabMemoryGamePractice(props) {
                     wordPairsLength = {props.wordPairsLength}
                     totalCards = {props.totalCards}
                     />
-                <button className = "route-button" onClick = {props.toGuide}>Return to Guide</button>
-
+                <div className = "route-button-container">
+                    <button className = "route-button" onClick = {props.toGuide}>Return to Guide</button>
+                </div>
             </div>
         )
     }
