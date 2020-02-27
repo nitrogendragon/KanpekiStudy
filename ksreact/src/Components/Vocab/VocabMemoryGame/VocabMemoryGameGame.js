@@ -245,6 +245,7 @@ export default function VocabMemoryGameGame(props) {
             <div>
                 <GameResults score = {score} timeTaken = {timeTaken} showResults = {props.showResults}
                     toPractice = {props.toPractice} toGuide = {props.toGuide}
+                    numberOfCorrectMatches = {numberOfCorrectMatches} totalCards = {props.totalCards}
                 />
                 <Timer className= "count-down"timeRemaining = {props.timeLeft} />
                 <div className = "route-button-container">
@@ -253,17 +254,21 @@ export default function VocabMemoryGameGame(props) {
                 <div className = "route-button-container">
                     <button onClick={props.toGuide} className = "route-button">Exit Game</button>
                 </div>
+                <div className = "route-button-container">
+                    <p>You have gotten {numberOfCorrectMatches} / {props.totalCards} matches right so far </p>
+                    <p>Score: {score}</p>
+                    <p>multiplier: {multiplier}</p>
+                </div>
                 <div className="game-grid">
                     {englishCardsArray}
                     {japaneseCardsArray}
                 </div>
-                <p> the value of selectedCardId1 is: {selectedCardId1}</p>
+                {/* <p> the value of selectedCardId1 is: {selectedCardId1}</p>
                 <p> the value of selectedCardId2 is: {selectedCardId2}</p>
                 <p> the value of selectedCardText1 is: {selectedCardText1.toString()}</p>
-                <p> the value of selectedCardText2 is: {selectedCardText2.toString()}</p>
-                <p>Score: {score}</p>
-                <p>multiplier: {multiplier}</p>
-                <p>You have gotten {numberOfCorrectMatches} / {props.totalCards} matches right so far </p>
+                <p> the value of selectedCardText2 is: {selectedCardText2.toString()}</p> */}
+                
+                
             </div>
         )
     }
